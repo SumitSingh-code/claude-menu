@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Ashoka Hotel & Restaurant – Jind</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
@@ -22,8 +22,8 @@
   --veg: #22C55E;
   --radius: 10px;
   --tab-h: 50px;
-  --nav-h: 56px;
   --cart-h: 64px;
+  --header-bg: rgba(5, 5, 5, 0.85); /* Glassmorphism background */
 }
 [data-theme="light"] {
   --bg: #FAF7F0;
@@ -34,29 +34,171 @@
   --text: #1A1408;
   --text2: #6B5A30;
   --text3: #A89060;
+  --header-bg: rgba(250, 247, 240, 0.85); /* Light mode glass */
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'Josefin Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s}
 
-/* NAV */
-#nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--bg);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:100;transition:background .3s}
-.nav-logo{display:flex;flex-direction:column;line-height:1}
-.nav-logo span:first-child{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--gold);letter-spacing:.04em}
-.nav-logo span:last-child{font-size:.6rem;letter-spacing:.2em;color:var(--text2);text-transform:uppercase}
-.nav-actions{display:flex;gap:10px;align-items:center}
-.icon-btn{background:none;border:1px solid var(--border);color:var(--text2);width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:border-color .2s,color .2s}
-.icon-btn:active{background:var(--bg3)}
+/* --- NEW ULTRA-PREMIUM HEADER ARCHITECTURE --- */
+#main-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--header-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
 
-/* CATEGORY TABS */
-#tabs-wrap{position:fixed;top:var(--nav-h);left:0;right:0;height:var(--tab-h);background:var(--bg);border-bottom:1px solid var(--border);z-index:90;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;white-space:nowrap;transition:background .3s}
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  min-height: 60px;
+}
+
+.left-actions, .right-actions {
+  display: flex;
+  gap: 8px;
+  flex: 1; /* Ensures perfect mathematical centering for the brand */
+}
+.right-actions { justify-content: flex-end; }
+
+.center-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 2;
+  text-align: center;
+}
+
+.brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin: 0;
+}
+
+.brand-sub {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  color: var(--text2);
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+/* 44x44 Touch Targets for Mobile */
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--gold);
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+}
+.icon-btn:active { background: rgba(201, 168, 76, 0.1); transform: scale(0.95); }
+
+/* Collapsible Section (Tagline & Search) */
+.collapsible-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  max-height: 200px; /* Large enough to hold content */
+  opacity: 1;
+  transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease, margin 0.3s ease;
+}
+
+/* Scroll State: Hides tagline and search smoothly */
+#main-header.scrolled .collapsible-section {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 150px;
+  margin: 12px auto 8px;
+}
+.hero-divider span { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); }
+.hero-divider em { color: var(--gold); font-size: 0.7rem; font-style: normal; }
+
+.brand-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--text2);
+  margin-bottom: 8px;
+}
+
+/* Slim Search Bar */
+.search-container {
+  width: 100%;
+  padding: 0 16px 16px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+.search-container.active {
+  max-height: 70px;
+  opacity: 1;
+}
+
+#menu-search {
+  width: 100%;
+  background: rgba(128, 128, 128, 0.1);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: var(--text);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.95rem;
+  padding: 12px 18px;
+  border-radius: 24px; /* Premium pill shape */
+  outline: none;
+  transition: border-color 0.3s, background 0.3s;
+}
+#menu-search:focus { border-color: var(--gold); background: rgba(128, 128, 128, 0.15); }
+#menu-search::placeholder { color: var(--text3); }
+
+/* Sticky Category Tabs */
+#tabs-wrap {
+  width: 100%;
+  height: var(--tab-h);
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  white-space: nowrap;
+  border-top: 1px solid rgba(128, 128, 128, 0.1);
+}
 #tabs-wrap::-webkit-scrollbar{display:none}
 #tabs{display:inline-flex;align-items:center;height:100%;padding:0 12px;gap:4px}
-.tab-btn{display:inline-flex;align-items:center;height:34px;padding:0 14px;border-radius:20px;border:1px solid var(--border);background:none;color:var(--text2);font-family:'Josefin Sans',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:all .2s}
+.tab-btn{display:inline-flex;align-items:center;height:34px;padding:0 14px;border-radius:20px;border:1px solid transparent;background:none;color:var(--text2);font-family:'Josefin Sans',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:all .2s}
 .tab-btn.active{background:var(--gold);color:#0A0A0A;border-color:var(--gold)}
 
-/* MAIN */
-#main{padding-top:calc(var(--nav-h) + var(--tab-h) + 16px);padding-bottom:calc(var(--cart-h) + 24px);min-height:100vh}
+/* MAIN CONTENT ADJUSTMENT */
+#main{padding-top: 16px; padding-bottom:calc(var(--cart-h) + 24px);min-height:100vh}
 
 /* SECTION */
 .menu-section{padding:0 16px 8px}
@@ -121,258 +263,171 @@ body{font-family:'Josefin Sans',sans-serif;background:var(--bg);color:var(--text
 .cust-input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);font-family:'Josefin Sans',sans-serif;font-size:.95rem;padding:14px 16px;border-radius:var(--radius);outline:none;margin-bottom:12px;transition:border-color .2s}
 .cust-input:focus{border-color:var(--gold)}
 .cust-input::placeholder{color:var(--text3)}
+textarea.cust-input { resize: none; height: 80px; font-family: inherit; }
 .cust-go{width:100%;background:var(--gold);color:#000;border:none;height:52px;border-radius:var(--radius);font-family:'Josefin Sans',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;margin-top:4px}
 
-/* HERO */
-#hero{padding:12px 16px 4px;text-align:center}
-.hero-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--text2)}
-.hero-divider{display:flex;align-items:center;gap:10px;margin:10px 0 0}
-.hero-divider span{flex:1;height:1px;background:var(--border)}
-.hero-divider em{color:var(--gold);font-size:.9rem;font-style:normal}
-
 /* SCROLL TO TOP */
-#scroll-top{position:fixed;bottom:calc(var(--cart-h) + 16px);right:16px;width:40px;height:40px;background:var(--bg3);border:1px solid var(--border);border-radius:50%;color:var(--text2);font-size:1.1rem;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:150}
+#scroll-top{position:fixed;bottom:calc(var(--cart-h) + 16px);right:16px;width:44px;height:44px;background:var(--bg3);border:1px solid var(--border);border-radius:50%;color:var(--text2);font-size:1.1rem;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:150}
 #scroll-top.show{display:flex}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="nav">
-  <div class="nav-logo">
-    <span>Ashoka</span>
-    <span>Hotel &amp; Restaurant · Jind</span>
+<header id="main-header">
+  <div class="top-bar">
+    <div class="left-actions">
+      <button class="icon-btn" id="search-toggle" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+    </div>
+    
+    <div class="center-brand">
+      <h1 class="brand-name">Ashoka</h1>
+      <span class="brand-sub">Hotel &amp; Restaurant • Jind</span>
+    </div>
+    
+    <div class="right-actions">
+      <button class="icon-btn" id="lang-btn" title="Translate">EN / हि</button>
+      <button class="icon-btn" id="theme-btn" aria-label="Toggle Theme">
+        <svg id="theme-icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+    </div>
   </div>
-  <div class="nav-actions">
-    <button class="icon-btn" id="theme-btn" title="Toggle theme">☀</button>
-  </div>
-</nav>
 
-<!-- TABS -->
-<div id="tabs-wrap"><div id="tabs"></div></div>
-
-<!-- MAIN -->
-<div id="main">
-  <div id="hero">
-    <p class="hero-tagline">Fine Dining &amp; Room Service</p>
+  <div class="collapsible-section" id="header-collapsible">
     <div class="hero-divider"><span></span><em>✦</em><span></span></div>
+    <p class="brand-tagline" id="ui-tagline">Fine Dining &amp; Room Service</p>
+    
+    <div class="search-container" id="search-container">
+      <input type="text" id="menu-search" placeholder="Search for food (e.g. Pizza, Dal...)" autocomplete="off">
+    </div>
   </div>
+
+  <div id="tabs-wrap"><div id="tabs"></div></div>
+</header>
+
+<div id="main">
   <div id="menu-root"></div>
 </div>
 
-<!-- CART BAR -->
 <div id="cart-bar">
   <div class="cart-bar-left">
     <span class="cart-bar-count" id="cb-count">0 items</span>
-    <span class="cart-bar-label">View Cart</span>
+    <span class="cart-bar-label" id="ui-view-cart">View Cart</span>
   </div>
   <span class="cart-bar-total" id="cb-total">₹0</span>
   <span class="cart-bar-arrow">›</span>
 </div>
 
-<!-- CART OVERLAY -->
 <div id="cart-overlay">
   <div class="cart-backdrop" id="cart-backdrop"></div>
   <div class="cart-sheet">
     <div class="cart-header">
-      <span class="cart-title">Your Order</span>
+      <span class="cart-title" id="ui-your-order">Your Order</span>
       <button class="close-btn" id="cart-close">✕</button>
     </div>
     <div class="cart-items" id="cart-items-list"></div>
     <div class="cart-footer">
       <div class="cart-total-row">
-        <span class="cart-total-label">Total</span>
+        <span class="cart-total-label" id="ui-total">Total</span>
         <span class="cart-total-val" id="cart-grand-total">₹0</span>
       </div>
       <div class="order-btns">
         <button class="wa-btn" id="wa-btn">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Order on WhatsApp
+          <span id="ui-wa-btn">Order on WhatsApp</span>
         </button>
-        <button class="email-btn" id="email-btn">✉ Email</button>
+        <button class="email-btn" id="email-btn"><span id="ui-email-btn">✉ Email</span></button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CUSTOMER MODAL -->
 <div id="cust-modal">
   <div class="cust-backdrop" id="cust-backdrop"></div>
   <div class="cust-box">
-    <div class="cust-title">Your Details</div>
+    <div class="cust-title" id="ui-modal-title">Your Details</div>
     <input class="cust-input" id="cust-name" type="text" placeholder="Your Name" autocomplete="name">
     <input class="cust-input" id="cust-table" type="text" placeholder="Table No. / Room No.">
+    <textarea class="cust-input" id="cust-notes" placeholder="Special Request for the Chef (e.g., less spicy, extra ketchup)"></textarea>
     <button class="cust-go" id="cust-confirm">Place Order →</button>
   </div>
 </div>
 
-<!-- SCROLL TOP -->
-<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+</button>
 
 <script>
+// CURRENT LANGUAGE STATE
+let currentLang = 'en';
+
+// UI STATIC TRANSLATIONS
+const UI_LANG = {
+  "ui-tagline": { en: "Fine Dining & Room Service", hi: "फाइन डाइनिंग और रूम सर्विस" },
+  "ui-view-cart": { en: "View Cart", hi: "कार्ट देखें" },
+  "ui-your-order": { en: "Your Order", hi: "आपका ऑर्डर" },
+  "ui-total": { en: "Total", hi: "कुल" },
+  "ui-wa-btn": { en: "Order on WhatsApp", hi: "व्हाट्सएप पर ऑर्डर करें" },
+  "ui-email-btn": { en: "✉ Email", hi: "✉ ईमेल" },
+  "ui-modal-title": { en: "Your Details", hi: "आपके विवरण" },
+  "cust-confirm": { en: "Place Order →", hi: "ऑर्डर प्लेस करें →" },
+  "lang-btn": { en: "EN / हि", hi: "हि / EN" }
+};
+const PLACEHOLDERS_LANG = {
+  "menu-search": { en: "Search for food (e.g. Pizza, Dal...)", hi: "खाना खोजें (जैसे पिज्जा, दाल...)" },
+  "cust-name": { en: "Your Name", hi: "आपका नाम" },
+  "cust-table": { en: "Table No. / Room No.", hi: "टेबल नं. / रूम नं." },
+  "cust-notes": { en: "Special Request for the Chef (e.g., less spicy, extra ketchup)", hi: "शेफ के लिए विशेष अनुरोध (जैसे कम तीखा)" }
+};
+
+// BILINGUAL MENU DATA
 const MENU_DATA = [
-  {cat:"Soup",items:[
-    {n:"Hot & Sour Soup",p:120},{n:"Lemon Coriander Soup",p:120},{n:"Mushroom Soup",p:120},
-    {n:"Sweet Corn Soup",p:120},{n:"Tomato Soup",p:120},{n:"Veg Clear Soup",p:120},
-    {n:"Tomato Basil Soup",p:120},{n:"Manchow Soup",p:120}
-  ]},
-  {cat:"Desi Chakhna",items:[
-    {n:"Nachos with Cheese",p:235},{n:"Kurkuri Corns with Cheese",p:295},{n:"Masala Papad",p:155},
-    {n:"Fried Papad",p:75},{n:"Roasted Papad",p:65},{n:"French Fries",p:155},{n:"Peri Peri Fries",p:175},
-    {n:"Loaded Cheesy Fries",p:225},{n:"Cone Papad Chaat",p:195},{n:"Fried Potato Chaat",p:175},
-    {n:"Paneer Pakora",p:225},{n:"Paneer Cutlet",p:335},{n:"Mix Pakora",p:175},{n:"Plain Nachos",p:135},
-    {n:"Chana Chaat",p:205},{n:"Fried Peanut Masala",p:205},{n:"Fried Peanut with Cheese",p:225}
-  ]},
-  {cat:"Sandwich",items:[
-    {n:"Coleslaw Sandwich",p:175},{n:"Club Sandwich",p:225},{n:"Cheese Sandwich",p:185},
-    {n:"Grilled Sandwich",p:205},{n:"Paneer Sandwich",p:235},{n:"Tomato Sandwich",p:165},
-    {n:"Mexican Cheesy Sandwich",p:195}
-  ]},
-  {cat:"Burgers",items:[
-    {n:"Mexican Burger",p:110},{n:"Paneer Tikka Burger",p:120},{n:"Crispy Paneer Burger",p:130},
-    {n:"Aloo Classic Burger",p:80},{n:"Aloo Cheese Burger",p:100},{n:"Spl. Ashoka King Burger",p:150},
-    {n:"Burger + Fries",p:180}
-  ]},
-  {cat:"Wraps",items:[
-    {n:"Spl. Paneer Tikka Wrap",p:200},{n:"Aloo Patty Wrap",p:120},{n:"Veg Haryali Wrap",p:180},
-    {n:"Corn & Peas Wrap",p:150},{n:"Spl. Ashoka Wrap",p:220}
-  ]},
-  {cat:"Salads",items:[
-    {n:"Green Salad",p:80},{n:"Kachumber Salad",p:120},{n:"Russian Salad",p:120},
-    {n:"Greek Salad",p:180},{n:"Garlic Corn Salad",p:195},{n:"Cucumber Mint Salad",p:185},
-    {n:"Oriental Salad",p:185},{n:"Caesar Salad",p:285},{n:"High Protein Salad",p:295}
-  ]},
-  {cat:"Pizza",items:[
-    {n:"Ashoka Special Pizza",p:355},{n:"Margarita Pizza",p:355},{n:"Paneer Tikka Pizza",p:355},
-    {n:"Paneer Hawaiian Pizza",p:355},{n:"Farmer's Choice Pizza",p:355},{n:"Sweet Corn Pizza",p:355},
-    {n:"Cheese Tomato Pizza",p:355},{n:"Mexican Pizza",p:355},{n:"Mushroom Pizza",p:355},
-    {n:"Thin Crust Pizza",p:355},{n:"Cheese Burst Pizza",p:425}
-  ]},
-  {cat:"Tandoori",items:[
-    {n:"Tandoori Platter",p:350},{n:"Veg Sheekh Kabab",p:200},{n:"Paneer Haryali Tikka",p:240},
-    {n:"Malai Paneer Tikka",p:260},{n:"Paneer Achari Tikka",p:260},{n:"Afghani Tikka",p:250},
-    {n:"Paneer Tikka",p:240},{n:"Garlic Paneer Tikka",p:250},{n:"Tandoori Soya Chaap",p:250},
-    {n:"Achari Chaap",p:250},{n:"Malai Chaap",p:220},{n:"Mushroom Tikka",p:240},
-    {n:"Paneer Lemon Tikka",p:240}
-  ]},
-  {cat:"Continental Starters",items:[
-    {n:"Cheese Snow Balls",p:345},{n:"Cottage Cheese Blue",p:355},{n:"Mushroom Day Night",p:335},
-    {n:"Ching Chang Roll",p:315},{n:"Veg Quesadilla",p:255},{n:"Cheese KFC",p:325},
-    {n:"Italian Potato Rolls",p:255},{n:"Mushroom Duplex",p:315},{n:"Spinach Corn Pocket Roll",p:295},
-    {n:"Mushroom Bombs",p:285},{n:"Grilled Cottage Cheese",p:355},{n:"Cheese Cigar Roll",p:305},
-    {n:"Onion Rings",p:235}
-  ]},
-  {cat:"Continental Main",items:[
-    {n:"Baked Vegetables",p:395},{n:"Vegetable Jalapeno",p:375},{n:"Baked Mushroom",p:395},
-    {n:"Mushroom Stroganoff",p:355},{n:"Veg Romeo",p:325},{n:"Lasagna",p:455},{n:"Veg O Graten",p:425}
-  ]},
-  {cat:"Sizzler",items:[
-    {n:"Veg Continental Sizzler",p:455},{n:"Mushroom Stir Sizzler",p:495}
-  ]},
-  {cat:"Chinese Main",items:[
-    {n:"Chilli Paneer Gravy",p:355},{n:"American Chop Suey",p:275},{n:"Veg Manchurian Gravy",p:265},
-    {n:"Chilli Soya Gravy",p:295},{n:"Chinese Sizzler",p:445}
-  ]},
-  {cat:"Noodles & Rice",items:[
-    {n:"Veg Noodles",p:195},{n:"Hakka Noodles",p:235},{n:"Garlic Noodles",p:205},
-    {n:"Chilli Garlic Noodles",p:205},{n:"Chilli Noodles",p:205},{n:"Singapore Noodle",p:235},
-    {n:"Veg Fried Rice",p:215},{n:"Schezwan Fried Rice",p:215},{n:"Mushroom Fried Rice",p:215},
-    {n:"Chilli Garlic Fried Rice",p:215}
-  ]},
-  {cat:"Chinese Snacks",items:[
-    {n:"Dahi Se Sholey",p:270},{n:"Veg Cutlet (8 pcs)",p:200},{n:"Dahi Ke Kabab (8 pcs)",p:280},
-    {n:"Haryali Kabab (8 pcs)",p:200},{n:"Stuff Cheese Corn Tikki",p:250}
-  ]},
-  {cat:"Chinese Starters",items:[
-    {n:"Honey Chilli Potato",p:225},{n:"Chilli Potato",p:200},{n:"Veg Spring Rolls",p:225},
-    {n:"Chilli Paneer Dry",p:320},{n:"Veg Manchurian Dry",p:240},{n:"Chestnut Water Dumplings",p:200},
-    {n:"Momos (Veg/Cheese)",p:270},{n:"Crispy Corn Kernels",p:280},{n:"Chilli Mushroom Dry",p:270},
-    {n:"Chilli Baby Corn",p:280},{n:"Chilli Soya Dry",p:270},{n:"Crispy Veg Salt & Pepper",p:260}
-  ]},
-  {cat:"Garlic Bread",items:[
-    {n:"Garlic Bread",p:245},{n:"Garlic Bread Stuffed",p:325}
-  ]},
-  {cat:"Pasta",items:[
-    {n:"White Sauce Pasta",p:200},{n:"Red Sauce Pasta",p:200},{n:"Mix Sauce Pasta",p:210}
-  ]},
-  {cat:"Dal",items:[
-    {n:"Dal Makhani",p:250},{n:"Dal Tadka",p:200},{n:"Dal Handi",p:230},
-    {n:"Rajma Rasile",p:200},{n:"Chana Pindi",p:250},{n:"Chana Masala",p:240}
-  ]},
-  {cat:"Paneer",items:[
-    {n:"Paneer Makhani",p:250},{n:"Paneer Butter Masala",p:300},{n:"Kadhai Paneer",p:300},
-    {n:"Paneer Bhurji",p:300},{n:"Paneer Lababdar",p:300},{n:"Paneer Pasanda",p:300},
-    {n:"Paneer Tikka Butter Masala",p:300},{n:"Shahi Paneer",p:300},{n:"Palak Paneer",p:300},
-    {n:"Paneer Do Pyaza",p:300},{n:"Paneer Malai Methi",p:290},{n:"Paneer Kali Mirch",p:290}
-  ]},
-  {cat:"Kofta",items:[
-    {n:"Punjabi Veg Kofta",p:250},{n:"Malai Kofta",p:260},{n:"Palak Kofta",p:250},
-    {n:"Paneer Makhni Kofta",p:260},{n:"Delight Kofta",p:250}
-  ]},
-  {cat:"Mushroom",items:[
-    {n:"Mushroom Masala",p:250},{n:"Mushroom Do Pyaza",p:300},{n:"Matar Mushroom",p:250}
-  ]},
-  {cat:"Chaap",items:[
-    {n:"Malai Chaap",p:250},{n:"Afghani Chaap",p:250},{n:"Lemon Chaap",p:250},{n:"Tandoori Chaap",p:250}
-  ]},
-  {cat:"Vegetables",items:[
-    {n:"Diwani Handi",p:220},{n:"Gobhi Masala",p:200},{n:"Aloo Jeera",p:180},
-    {n:"Aloo Gobhi Masala",p:200},{n:"Methi Malai Matar",p:240},{n:"Navrattan Korma",p:280},
-    {n:"Dum Alloo Kashmiri",p:180},{n:"Chaap Tikka Butter Masala",p:250}
-  ]},
-  {cat:"Rice & Biryani",items:[
-    {n:"Steamed Rice",p:180},{n:"Jeera Rice",p:190},{n:"Matar Pulao",p:200},
-    {n:"Veg Subz Pulao",p:220},{n:"Kashmiri Pulao",p:250},
-    {n:"Ashoka Special Dum Biryani",p:300},{n:"Veg Subzi Biryani",p:250},
-    {n:"Paneer Ki Biryani",p:250},{n:"Chaap Biryani",p:250},{n:"Hyderabadi Biryani",p:250}
-  ]},
-  {cat:"Breads",items:[
-    {n:"Roti",p:20},{n:"Missi Roti",p:45},{n:"Missi Roti with Onion",p:50},{n:"Butter Roti",p:30},
-    {n:"Butter Roti with Onion",p:35},{n:"Lachha Parantha",p:55},{n:"Pudina Parantha",p:65},
-    {n:"Chilli Parantha",p:65},{n:"Plain Naan",p:55},{n:"Butter Naan",p:50},{n:"Cheese Naan",p:120},
-    {n:"Garlic Naan",p:90},{n:"Cheese Garlic Naan",p:120},{n:"Stuff Naan",p:160},
-    {n:"Kashmiri Naan",p:70},{n:"Stuffed Parantha & Kulcha",p:100},{n:"Chur Chur Naan",p:100},
-    {n:"Garlic Onion Roti",p:50}
-  ]},
-  {cat:"Raita",items:[
-    {n:"Mint Raita",p:150},{n:"Plain Curd",p:100},{n:"Mix Raita",p:150},
-    {n:"Pahadi Tadka Raita",p:150},{n:"Pineapple Raita",p:150},{n:"Tadka Raita",p:150},
-    {n:"Boondi Raita",p:150}
-  ]},
-  {cat:"Dessert",items:[
-    {n:"Kesar Kheer",p:150},{n:"Moong Halwa / Gajrela",p:150},{n:"Brownie with Ice Cream",p:180},
-    {n:"Gulab Jamun (Desi Ghee)",p:60},{n:"Tutti Frutti Ice Cream",p:170},{n:"Assorted Ice Cream",p:105}
-  ]}
+  {catEn:"Soup", catHi:"सूप", items:[{nEn:"Hot & Sour Soup",nHi:"हॉट एंड सॉर सूप",p:120},{nEn:"Sweet Corn Soup",nHi:"स्वीट कॉर्न सूप",p:120},{nEn:"Tomato Soup",nHi:"टोमैटो सूप",p:120},{nEn:"Veg Clear Soup",nHi:"वेज क्लियर सूप",p:120}]},
+  {catEn:"Starters", catHi:"स्टार्टर्स", items:[{nEn:"Roasted Papad",nHi:"रोस्टेड पापड़",p:65},{nEn:"Fried Papad",nHi:"फ्राइड पापड़",p:75},{nEn:"Plain Nachos",nHi:"प्लेन नाचोज",p:135},{nEn:"French Fries",nHi:"फ्रेंच फ्राइज",p:155},{nEn:"Masala Papad",nHi:"मसाला पापड़",p:155},{nEn:"Peri Peri Fries",nHi:"पेरी पेरी फ्राइज",p:175},{nEn:"Mix Pakora",nHi:"मिक्स पकोड़ा",p:175},{nEn:"Fried Potato Chaat",nHi:"फ्राइड पोटैटो चाट",p:175},{nEn:"Cone Papad Chaat",nHi:"कोन पापड़ चाट",p:195},{nEn:"Veg Cutlet (8pcs)",nHi:"वेज कटलेट (8 पीस)",p:200},{nEn:"Haryali Kabab (8pcs)",nHi:"हरियाली कबाब (8 पीस)",p:200},{nEn:"Chana Chaat",nHi:"चना चाट",p:205},{nEn:"Fried Peanut Masala",nHi:"फ्राइड पीनट मसाला",p:205},{nEn:"Fried Peanut with Cheese",nHi:"फ्राइड पीनट विद चीज",p:225},{nEn:"Paneer Pakora",nHi:"पनीर पकोड़ा",p:225},{nEn:"Loaded Cheesy Fries",nHi:"लोडेड चीजी फ्राइज",p:225},{nEn:"Nachos with Cheese",nHi:"नाचोज विद चीज",p:235},{nEn:"Dahi Se Sholey",nHi:"दही से शोले",p:250},{nEn:"Dahi Ke Kabab (8pcs)",nHi:"दही के कबाब (8 पीस)",p:270},{nEn:"Stuff Cheese Corn Tikki",nHi:"स्टफ चीज कॉर्न टिक्की",p:280},{nEn:"Kurkuri Corns with Cheese",nHi:"कुरकुरी कॉर्न्स विद चीज",p:295},{nEn:"Paneer Cutlet",nHi:"पनीर कटलेट",p:335}]},
+  {catEn:"Sandwich", catHi:"सैंडविच", items:[{nEn:"Veg Sandwich",nHi:"वेज सैंडविच",p:80},{nEn:"Tomato Sandwich",nHi:"टोमैटो सैंडविच",p:80},{nEn:"Cheese Sandwich",nHi:"चीज सैंडविच",p:100},{nEn:"Grilled Sandwich",nHi:"ग्रिल्ड सैंडविच",p:100},{nEn:"Club Sandwich",nHi:"क्लब सैंडविच",p:120},{nEn:"Paneer Sandwich",nHi:"पनीर सैंडविच",p:120}]},
+  {catEn:"Burgers", catHi:"बर्गर", items:[{nEn:"Aloo Classic Burger",nHi:"आलू क्लासिक बर्गर",p:80},{nEn:"Aloo Cheese Burger",nHi:"आलू चीज बर्गर",p:100},{nEn:"Paneer Tikka Burger",nHi:"पनीर टिक्का बर्गर",p:120},{nEn:"Crispy Paneer Burger",nHi:"क्रिस्पी पनीर बर्गर",p:130},{nEn:"Spl. Better Burger",nHi:"स्पेशल बेटर बर्गर",p:150},{nEn:"Burger + Fries",nHi:"बर्गर + फ्राइज",p:180}]},
+  {catEn:"Pizza", catHi:"पिज्जा", items:[{nEn:"Cheese Tomato Pizza",nHi:"चीज टोमैटो पिज्जा",p:240},{nEn:"Mushroom Pizza",nHi:"मशरूम पिज्जा",p:260},{nEn:"Margherita Pizza",nHi:"मार्घेरिटा पिज्जा",p:280},{nEn:"Sweet Corn Pizza",nHi:"स्वीट कॉर्न पिज्जा",p:280},{nEn:"Paneer Tikka Pizza",nHi:"पनीर टिक्का पिज्जा",p:300},{nEn:"Farmer's Choice Pizza",nHi:"फार्मर चॉइस पिज्जा",p:300}]},
+  {catEn:"Tandoori Starters", catHi:"तंदूरी स्टार्टर्स", items:[{nEn:"Veg Sheekh Kababa",nHi:"वेज सीख कबाब",p:200},{nEn:"Malai Chaap",nHi:"मलाई चाप",p:220},{nEn:"Mushroom Tikka",nHi:"मशरूम टिक्का",p:240},{nEn:"Paneer Tikka",nHi:"पनीर टिक्का",p:240},{nEn:"Paneer Haryali Tikka",nHi:"पनीर हरियाली टिक्का",p:240},{nEn:"Afghani Tikka",nHi:"अफगानी टिक्का",p:250},{nEn:"Garlic Paneer Tikka",nHi:"गार्लिक पनीर टिक्का",p:250},{nEn:"Tandoori Soya Chaap",nHi:"तंदूरी सोया चाप",p:250},{nEn:"Achaari Chaap",nHi:"अचारी चाप",p:250},{nEn:"Paneer Achaari Tikka",nHi:"पनीर अचारी टिक्का",p:260},{nEn:"Malai Paneer Tikka",nHi:"मलाई पनीर टिक्का",p:260},{nEn:"Tandoori Platter",nHi:"तंदूरी प्लेटर",p:350}]},
+  {catEn:"Salads", catHi:"सलाद", items:[{nEn:"Green Salad",nHi:"ग्रीन सलाद",p:80},{nEn:"Kachumber Salad",nHi:"कचूम्बर सलाद",p:120},{nEn:"Greek Salad",nHi:"ग्रीक सलाद",p:180},{nEn:"Cucumber Mint Salad",nHi:"कुकुंबर मिंट सलाद",p:185},{nEn:"Garlic Corn Salad",nHi:"गार्लिक कॉर्न सलाद",p:195},{nEn:"High Protein Salad",nHi:"हाई प्रोटीन सलाद",p:295}]},
+  {catEn:"Chinese", catHi:"चाइनीज", items:[{nEn:"Chilli Potato",nHi:"चिल्ली पोटैटो",p:200},{nEn:"Honey Chilli Potato",nHi:"हनी चिल्ली पोटैटो",p:225},{nEn:"Veg Spring Rolls",nHi:"वेज स्प्रिंग रोल्स",p:225},{nEn:"Veg Manchurian Dry",nHi:"वेज मंचूरियन ड्राय",p:240},{nEn:"Veg Manchurian Gravy",nHi:"वेज मंचूरियन ग्रेवी",p:265},{nEn:"Chilli Mushroom Dry",nHi:"चिल्ली मशरूम ड्राय",p:270},{nEn:"Chilli Baby Corn",nHi:"चिल्ली बेबी कॉर्न",p:280},{nEn:"Chilli Panner Dry",nHi:"चिल्ली पनीर ड्राय",p:320},{nEn:"Chilli Panner Gravy",nHi:"चिल्ली पनीर ग्रेवी",p:355},{nEn:"Chinese Sizzler",nHi:"चाइनीज सिज़लर",p:499}]},
+  {catEn:"Noodles & Rice", catHi:"नूडल्स एंड राइस", items:[{nEn:"Veg Noodles",nHi:"वेज नूडल्स",p:195},{nEn:"Hakka Noodles",nHi:"हक्का नूडल्स",p:235},{nEn:"Garlic Noodles",nHi:"गार्लिक नूडल्स",p:205},{nEn:"Chilli Garlic Noodles",nHi:"चिल्ली गार्लिक नूडल्स",p:205},{nEn:"Singapore Noodles",nHi:"सिंगापुर नूडल्स",p:235},{nEn:"Veg Fried Rice",nHi:"वेज फ्राइड राइस",p:215},{nEn:"Schezwan Fried Rice",nHi:"शेजवान फ्राइड राइस",p:215},{nEn:"Mushroom Fried Rice",nHi:"मशरूम फ्राइड राइस",p:215},{nEn:"Chilli Garlic Fried Rice",nHi:"चिल्ली गार्लिक फ्राइड राइस",p:215}]},
+  {catEn:"Pasta", catHi:"पास्ता", items:[{nEn:"White Sauce Pasta",nHi:"व्हाइट सॉस पास्ता",p:250},{nEn:"Red Sauce Pasta",nHi:"रेड सॉस पास्ता",p:200},{nEn:"Mix Sauce Pasta",nHi:"मिक्स सॉस पास्ता",p:210}]},
+  {catEn:"Main Course (Dal)", catHi:"मेन कोर्स (दाल)", items:[{nEn:"Dal Tadka (Half)",nHi:"दाल तड़का (हाफ)",p:130},{nEn:"Dal Tadka (Full)",nHi:"दाल तड़का (फुल)",p:200},{nEn:"Rajma Rasile (Half)",nHi:"राजमा रसीले (हाफ)",p:120},{nEn:"Rajma Rasile (Full)",nHi:"राजमा रसीले (फुल)",p:200},{nEn:"Dal Handi (Half)",nHi:"दाल हांडी (हाफ)",p:140},{nEn:"Dal Handi (Full)",nHi:"दाल हांडी (फुल)",p:230},{nEn:"Chana Masala (Half)",nHi:"चना मसाला (हाफ)",p:160},{nEn:"Chana Masala (Full)",nHi:"चना मसाला (फुल)",p:240},{nEn:"Chana Pindi (Half)",nHi:"चना पिंडी (हाफ)",p:170},{nEn:"Chana Pindi (Full)",nHi:"चना पिंडी (फुल)",p:250},{nEn:"Dal Makhani (Half)",nHi:"दाल मखनी (हाफ)",p:150},{nEn:"Dal Makhani (Full)",nHi:"दाल मखनी (फुल)",p:250}]},
+  {catEn:"Main Course (Paneer)", catHi:"मेन कोर्स (पनीर)", items:[{nEn:"Paneer Makhani (Half)",nHi:"पनीर मखनी (हाफ)",p:170},{nEn:"Paneer Makhani (Full)",nHi:"पनीर मखनी (फुल)",p:250},{nEn:"Paneer Malai Methi (Half)",nHi:"पनीर मलाई मेथी (हाफ)",p:180},{nEn:"Paneer Malai Methi (Full)",nHi:"पनीर मलाई मेथी (फुल)",p:300},{nEn:"Paneer Kali Mirch (Half)",nHi:"पनीर काली मिर्च (हाफ)",p:180},{nEn:"Paneer Kali Mirch (Full)",nHi:"पनीर काली मिर्च (फुल)",p:300},{nEn:"Paneer Butter Masala (Half)",nHi:"पनीर बटर मसाला (हाफ)",p:190},{nEn:"Paneer Butter Masala (Full)",nHi:"पनीर बटर मसाला (फुल)",p:300},{nEn:"Kadhai Paneer (Half)",nHi:"कढ़ाई पनीर (हाफ)",p:180},{nEn:"Kadhai Paneer (Full)",nHi:"कढ़ाई पनीर (फुल)",p:300},{nEn:"Paneer Bhurji (Half)",nHi:"पनीर भुर्जी (हाफ)",p:180},{nEn:"Paneer Bhurji (Full)",nHi:"पनीर भुर्जी (फुल)",p:300},{nEn:"Paneer Lababdar (Half)",nHi:"पनीर लबाबदार (हाफ)",p:180},{nEn:"Paneer Lababdar (Full)",nHi:"पनीर लबाबदार (फुल)",p:300},{nEn:"Paneer Pasanda (Half)",nHi:"पनीर पसंदा (हाफ)",p:180},{nEn:"Paneer Pasanda (Full)",nHi:"पनीर पसंदा (फुल)",p:300},{nEn:"Paneer Tikka Butter Masala (Half)",nHi:"पनीर टिक्का बटर मसाला (हाफ)",p:180},{nEn:"Paneer Tikka Butter Masala (Full)",nHi:"पनीर टिक्का बटर मसाला (फुल)",p:300},{nEn:"Shahi Paneer (Half)",nHi:"शाही पनीर (हाफ)",p:180},{nEn:"Shahi Paneer (Full)",nHi:"शाही पनीर (फुल)",p:300},{nEn:"Palak Paneer (Half)",nHi:"पालक पनीर (हाफ)",p:180},{nEn:"Palak Paneer (Full)",nHi:"पालक पनीर (फुल)",p:290},{nEn:"Paneer Do Pyaza (Half)",nHi:"पनीर दो प्याजा (हाफ)",p:180},{nEn:"Paneer Do Pyaza (Full)",nHi:"पनीर दो प्याजा (फुल)",p:290}]},
+  {catEn:"Main Course (Kofta)", catHi:"मेन कोर्स (कोफ्ता)", items:[{nEn:"Punjabi Veg Kofta (Half)",nHi:"पंजाबी वेज कोफ्ता (हाफ)",p:170},{nEn:"Punjabi Veg Kofta (Full)",nHi:"पंजाबी वेज कोफ्ता (फुल)",p:250},{nEn:"Palak Kofta (Half)",nHi:"पालक कोफ्ता (हाफ)",p:170},{nEn:"Palak Kofta (Full)",nHi:"पालक कोफ्ता (फुल)",p:250},{nEn:"Delight Kofta (Half)",nHi:"डिलाइट कोफ्ता (हाफ)",p:170},{nEn:"Delight Kofta (Full)",nHi:"डिलाइट कोफ्ता (फुल)",p:250},{nEn:"Paneer Makhni Kofta (Half)",nHi:"पनीर मखनी कोफ्ता (हाफ)",p:180},{nEn:"Paneer Makhni Kofta (Full)",nHi:"पनीर मखनी कोफ्ता (फुल)",p:260},{nEn:"Malai Kofta (Half)",nHi:"मलाई कोफ्ता (हाफ)",p:180},{nEn:"Malai Kofta (Full)",nHi:"मलाई कोफ्ता (फुल)",p:260}]},
+  {catEn:"Main Course (Mushroom)", catHi:"मेन कोर्स (मशरूम)", items:[{nEn:"Mushroom Masala (Half)",nHi:"मशरूम मसाला (हाफ)",p:170},{nEn:"Mushroom Masala (Full)",nHi:"मशरूम मसाला (फुल)",p:250},{nEn:"Matar Mushroom (Half)",nHi:"मटर मशरूम (हाफ)",p:170},{nEn:"Matar Mushroom (Full)",nHi:"मटर मशरूम (फुल)",p:250},{nEn:"Mushroom Do Pyaza (Half)",nHi:"मशरूम दो प्याजा (हाफ)",p:180},{nEn:"Mushroom Do Pyaza (Full)",nHi:"मशरूम दो प्याजा (फुल)",p:300}]},
+  {catEn:"Main Course (Chaap)", catHi:"मेन कोर्स (चाप)", items:[{nEn:"Malai Chaap",nHi:"मलाई चाप",p:250},{nEn:"Afghani Chaap",nHi:"अफगानी चाप",p:250},{nEn:"Lemon Chaap",nHi:"लेमन चाप",p:250},{nEn:"Tandoori Chaap",nHi:"तंदूरी चाप",p:250}]},
+  {catEn:"Dry Vegetables", catHi:"ड्राई वेजिटेबल्स एंड स्पेशल करी", items:[{nEn:"Dum Aloo Kashmiri (Half)",nHi:"दम आलू कश्मीरी (हाफ)",p:100},{nEn:"Dum Aloo Kashmiri (Full)",nHi:"दम आलू कश्मीरी (फुल)",p:180},{nEn:"Aloo Jeera (Half)",nHi:"आलू जीरा (हाफ)",p:100},{nEn:"Aloo Jeera (Full)",nHi:"आलू जीरा (फुल)",p:180},{nEn:"Gobhi Masala (Half)",nHi:"गोभी मसाला (हाफ)",p:120},{nEn:"Gobhi Masala (Full)",nHi:"गोभी मसाला (फुल)",p:200},{nEn:"Aloo Gobhi Masala (Half)",nHi:"आलू गोभी मसाला (हाफ)",p:110},{nEn:"Aloo Gobhi Masala (Full)",nHi:"आलू गोभी मसाला (फुल)",p:200},{nEn:"Diwani Handi (Half)",nHi:"दीवानी हांडी (हाफ)",p:140},{nEn:"Diwani Handi (Full)",nHi:"दीवानी हांडी (फुल)",p:220},{nEn:"Methi Malai Matar (Half)",nHi:"मेथी मलाई मटर (हाफ)",p:160},{nEn:"Methi Malai Matar (Full)",nHi:"मेथी मलाई मटर (फुल)",p:240},{nEn:"Chaap Tikka Butter Masala",nHi:"चाप टिक्का बटर मसाला",p:250},{nEn:"Mix Veg",nHi:"मिक्स वेज",p:250},{nEn:"Navrattan Korma (Half)",nHi:"नवरत्न कोरमा (हाफ)",p:200},{nEn:"Navrattan Korma (Full)",nHi:"नवरत्न कोरमा (फुल)",p:280}]},
+  {catEn:"Rice Ki Bahar", catHi:"राइस की बहार", items:[{nEn:"Steamed Rice",nHi:"स्टीम्ड राइस",p:180},{nEn:"Jeera Rice",nHi:"जीरा राइस",p:190},{nEn:"Matar Pulao",nHi:"मटर पुलाव",p:200},{nEn:"Veg Subz Pulao",nHi:"वेज सब्ज पुलाव",p:220},{nEn:"Kashmiri Pulao",nHi:"कश्मीरी पुलाव",p:250}]},
+  {catEn:"Breads", catHi:"ब्रेड्स", items:[{nEn:"Roti",nHi:"रोटी",p:20},{nEn:"Butter Roti",nHi:"बटर रोटी",p:30},{nEn:"Butter Roti with Onion",nHi:"बटर रोटी विद अनियन",p:30},{nEn:"Butter Roti with Onion (Special)",nHi:"बटर रोटी विद अनियन",p:35},{nEn:"Missi Roti",nHi:"मिस्सी रोटी",p:45},{nEn:"Missi Roti with Onion",nHi:"मिस्सी रोटी विद अनियन",p:50},{nEn:"Butter Naan",nHi:"बटर नान",p:50},{nEn:"Garlic Onion Roti",nHi:"गार्लिक अनियन रोटी",p:50},{nEn:"Pyaz Parantha",nHi:"प्याज परांठा",p:50},{nEn:"Lachha Parantha",nHi:"लच्छा परांठा",p:50},{nEn:"Plain Naan",nHi:"प्लेन नान",p:55},{nEn:"Pudina Parantha",nHi:"पुदीना परांठा",p:65},{nEn:"Chilli Parantha (Red/Green)",nHi:"चिल्ली परांठा (रेड/ग्रीन)",p:65},{nEn:"Kashmiri Naan",nHi:"कश्मीरी नान",p:70},{nEn:"Garlic Naan",nHi:"गार्लिक नान",p:90},{nEn:"Aloo Pyaz Prantha",nHi:"आलू प्याज परांठा",p:95},{nEn:"Stuffed Parantha & Kulcha",nHi:"स्टफ्ड परांठा एंड कुल्चा",p:100},{nEn:"Chur Chur Naan",nHi:"चूर चूर नान",p:100},{nEn:"Paneer Prantha",nHi:"पनीर परांठा",p:115},{nEn:"Cheese Naan",nHi:"चीज नान",p:120},{nEn:"Cheese Garlic Naan",nHi:"चीज गार्लिक नान",p:120},{nEn:"Stuff Naan",nHi:"स्टफ नान",p:120}]},
+  {catEn:"Raita", catHi:"रायता", items:[{nEn:"Plain Curd",nHi:"प्लेन कर्ड",p:100},{nEn:"Mint Raita",nHi:"मिंट रायता",p:150},{nEn:"Mix Raita",nHi:"मिक्स रायता",p:150},{nEn:"Pahadi Tadka Raita",nHi:"पहाड़ी तड़का रायता",p:150},{nEn:"Pineapple Raita",nHi:"पाइनएप्पल रायता",p:150},{nEn:"Tadka Raita",nHi:"तड़का रायता",p:150},{nEn:"Boondi Raita",nHi:"बूंदी रायता",p:150}]},
+  {catEn:"Dessert", catHi:"डेजर्ट", items:[{nEn:"Gulab Jamun (Desi Ghee)",nHi:"गुलाब जामुन (देसी घी)",p:60},{nEn:"Ice Cream",nHi:"आइस क्रीम",p:75},{nEn:"Kesar Kheer",nHi:"केसर खीर",p:150},{nEn:"Winter Special",nHi:"विंटर स्पेशल",p:150},{nEn:"Moong Halwa / Gajrela",nHi:"मूंग हलवा / गजरेला",p:150}]},
+  {catEn:"Drinks", catHi:"ड्रिंक्स", items:[{nEn:"Tea",nHi:"चाय",p:40},{nEn:"Hot Coffee",nHi:"हॉट कॉफी",p:60},{nEn:"Salted Lassi",nHi:"साल्टेड लस्सी",p:70},{nEn:"Green Apple",nHi:"ग्रीन एप्पल",p:90},{nEn:"Blue Ocean",nHi:"ब्लू ओशन",p:90},{nEn:"Virgin Mojito",nHi:"वर्जिन मोजिटो",p:90},{nEn:"Water Melon",nHi:"वाटर मेलन",p:90},{nEn:"Cold Coffee",nHi:"कोल्ड कॉफी",p:100},{nEn:"Chocolate Shake",nHi:"चॉकलेट शेक",p:150},{nEn:"Choco Oreo Shake",nHi:"चोको ओरियो शेक",p:150},{nEn:"Kit Kat Shake",nHi:"किट कैट शेक",p:150},{nEn:"With Ice Cream",nHi:"विद आइस क्रीम",p:150},{nEn:"Butterscotch Shake",nHi:"बटरस्कॉच शेक",p:180},{nEn:"Hazelnut Dryfruit Shake",nHi:"हेज़लनट ड्रायफ्रूट शेक",p:200}]}
 ];
 
 const DESCS = {
-  "Soup": "Freshly prepared, warming & soothing",
-  "Desi Chakhna": "Perfect companions for your evening",
-  "Sandwich": "Freshly made to order",
-  "Burgers": "Stacked with flavour",
-  "Wraps": "Rolled & ready",
-  "Salads": "Crisp, fresh & wholesome",
-  "Pizza": "Stone-baked crust, loaded toppings",
-  "Tandoori": "From our live tandoor",
-  "Continental Starters": "European-inspired small plates",
-  "Continental Main": "Hearty European mains",
-  "Sizzler": "Served sizzling hot at your table",
-  "Chinese Main": "Wok-tossed with bold sauces",
-  "Noodles & Rice": "Indo-Chinese comfort food",
-  "Chinese Snacks": "Crispy bites & kababs",
-  "Chinese Starters": "Classic Indo-Chinese favourites",
-  "Garlic Bread": "Baked with herb butter",
-  "Pasta": "Tossed in rich Italian sauces",
-  "Dal": "Slow-cooked lentil perfection",
-  "Paneer": "Cottage cheese in aromatic gravies",
-  "Kofta": "Delicate dumplings in rich curries",
-  "Mushroom": "Earthy & flavourful",
-  "Chaap": "Marinated & grilled soya chaap",
-  "Vegetables": "Seasonal veggies, classic masalas",
-  "Rice & Biryani": "Fragrant & satisfying",
-  "Breads": "From the tandoor & tawa",
-  "Raita": "Cool yoghurt accompaniments",
-  "Dessert": "Sweet endings"
+  "Soup": {en:"Freshly prepared, warming & soothing", hi:"ताज़ा तैयार किया गया"},
+  "Starters": {en:"Perfect companions for your evening", hi:"आपके शाम के लिए बेहतरीन"},
+  "Sandwich": {en:"Freshly made to order", hi:"ताज़ा और स्वादिष्ट"},
+  "Burgers": {en:"Stacked with flavour", hi:"स्वाद से भरपूर"},
+  "Pizza": {en:"Stone-baked crust, loaded toppings", hi:"ओवन बेक्ड और क्रिस्पी"},
+  "Tandoori Starters": {en:"From our live tandoor", hi:"सीधे हमारे तंदूर से"},
+  "Salads": {en:"Crisp, fresh & wholesome", hi:"ताज़ा और सेहतमंद"},
+  "Chinese": {en:"Wok-tossed with bold sauces", hi:"मसालेदार और स्वादिष्ट"},
+  "Noodles & Rice": {en:"Indo-Chinese comfort food", hi:"इंडो-चाइनीज बेहतरीन स्वाद"},
+  "Pasta": {en:"Tossed in rich Italian sauces", hi:"इटैलियन सॉस में तैयार"},
+  "Main Course (Dal)": {en:"Slow-cooked lentil perfection", hi:"धीमी आंच पर पकी हुई दाल"},
+  "Main Course (Paneer)": {en:"Cottage cheese in aromatic gravies", hi:"स्वादिष्ट ग्रेवी में पनीर"},
+  "Main Course (Kofta)": {en:"Delicate dumplings in rich curries", hi:"स्पेशल ग्रेवी में सॉफ्ट कोफ्ते"},
+  "Main Course (Mushroom)": {en:"Earthy & flavourful", hi:"मशरूम का शानदार स्वाद"},
+  "Main Course (Chaap)": {en:"Marinated & grilled soya chaap", hi:"तंदूरी मसालों में चाप"},
+  "Dry Vegetables": {en:"Seasonal veggies, classic masalas", hi:"सीजनल सब्जियां और देसी मसाले"},
+  "Rice Ki Bahar": {en:"Fragrant & satisfying", hi:"खुशबूदार चावल और पुलाव"},
+  "Breads": {en:"From the tandoor & tawa", hi:"तंदूर और तवे से गरमा-गरम"},
+  "Raita": {en:"Cool yoghurt accompaniments", hi:"ठंडा और स्वादिष्ट रायता"},
+  "Dessert": {en:"Sweet endings", hi:"कुछ मीठा हो जाए"},
+  "Drinks": {en:"Refreshing beverages", hi:"रिफ्रेशिंग ड्रिंक्स"}
 };
 
 // Cart state
@@ -385,14 +440,20 @@ function buildMenu(){
   const tabs = document.getElementById('tabs');
 
   MENU_DATA.forEach((section,si)=>{
-    const slug = getSlug(section.cat);
+    const slug = getSlug(section.catEn);
 
     // Tab
     const tb = document.createElement('button');
     tb.className = 'tab-btn' + (si===0?' active':'');
-    tb.textContent = section.cat;
+    tb.dataset.en = section.catEn;
+    tb.dataset.hi = section.catHi;
+    tb.textContent = section.catEn;
     tb.onclick = ()=>{
-      document.getElementById('sec-'+slug).scrollIntoView({behavior:'smooth',block:'start'});
+      const target = document.getElementById('sec-'+slug);
+      const headerOffset = 130; 
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
       setTimeout(()=>setActiveTab(slug),400);
     };
     tb.dataset.slug = slug;
@@ -402,26 +463,30 @@ function buildMenu(){
     const sec = document.createElement('div');
     sec.className = 'menu-section';
     sec.id = 'sec-'+slug;
-    sec.innerHTML = `<div class="section-title">${section.cat}</div><div class="section-line"></div>`;
+    sec.innerHTML = `<div class="section-title" data-en="${section.catEn}" data-hi="${section.catHi}">${section.catEn}</div><div class="section-line"></div>`;
 
     section.items.forEach(item=>{
-      const id = section.cat+'__'+item.n;
+      const id = section.catEn+'__'+item.nEn.replace(/\s+/g,'_');
       const row = document.createElement('div');
       row.className = 'menu-item';
       row.dataset.id = id;
+      row.dataset.search = (item.nEn + ' ' + item.nHi).toLowerCase();
+      
+      let descEn = DESCS[section.catEn]?.en || '';
+      let descHi = DESCS[section.catEn]?.hi || '';
+
       row.innerHTML = `
         <div class="item-veg"></div>
         <div class="item-info">
-          <div class="item-name">${item.n}</div>
-          <div class="item-desc">${DESCS[section.cat]||''}</div>
+          <div class="item-name" data-en="${item.nEn}" data-hi="${item.nHi}">${item.nEn}</div>
+          <div class="item-desc" data-en="${descEn}" data-hi="${descHi}">${descEn}</div>
         </div>
         <div class="item-price">₹${item.p}</div>
         <div class="item-ctrl" id="ctrl-${CSS.escape(id)}">
-          <button class="add-btn" onclick="addItem('${id}',${item.p},'${item.n.replace(/'/g,"\\'")}')">+</button>
+          <button class="add-btn" onclick="addItem('${id}',${item.p},'${item.nEn.replace(/'/g,"\\'")}','${item.nHi.replace(/'/g,"\\'")}')">+</button>
         </div>`;
       sec.appendChild(row);
     });
-
     root.appendChild(sec);
   });
 }
@@ -433,8 +498,8 @@ function setActiveTab(slug){
   });
 }
 
-function addItem(id, price, name){
-  if(!cart[id]) cart[id]={name,price,qty:0};
+function addItem(id, price, nameEn, nameHi){
+  if(!cart[id]) cart[id]={nameEn, nameHi, price, qty:0};
   cart[id].qty++;
   renderCtrl(id);
   updateCartBar();
@@ -453,14 +518,16 @@ function renderCtrl(id){
   if(!el) return;
   const item = cart[id];
   if(!item || item.qty===0){
-    const price = el.closest('.menu-item')?.querySelector('.item-price')?.textContent.replace('₹','');
-    const name = el.closest('.menu-item')?.querySelector('.item-name')?.textContent.replace(/'/g,"\\'");
-    el.innerHTML = `<button class="add-btn" onclick="addItem('${id}',${price||0},'${name||''}')">+</button>`;
+    const parent = el.closest('.menu-item');
+    const price = parent?.querySelector('.item-price')?.textContent.replace('₹','');
+    const nameEn = parent?.querySelector('.item-name')?.getAttribute('data-en').replace(/'/g,"\\'");
+    const nameHi = parent?.querySelector('.item-name')?.getAttribute('data-hi').replace(/'/g,"\\'");
+    el.innerHTML = `<button class="add-btn" onclick="addItem('${id}',${price||0},'${nameEn||''}','${nameHi||''}')">+</button>`;
   } else {
     el.innerHTML = `<div class="qty-ctrl">
       <button class="qty-btn" onclick="removeItem('${id}')">−</button>
       <span class="qty-num">${item.qty}</span>
-      <button class="qty-btn" onclick="addItem('${id}',${item.price},'${item.name.replace(/'/g,"\\'")}')">+</button>
+      <button class="qty-btn" onclick="addItem('${id}',${item.price},'${item.nameEn.replace(/'/g,"\\'")}','${item.nameHi.replace(/'/g,"\\'")}')">+</button>
     </div>`;
   }
 }
@@ -470,7 +537,9 @@ function updateCartBar(){
   const total = items.reduce((s,i)=>s+i.price*i.qty,0);
   const count = items.reduce((s,i)=>s+i.qty,0);
   const bar = document.getElementById('cart-bar');
-  document.getElementById('cb-count').textContent = count+' item'+(count!==1?'s':'');
+  
+  let countText = count + (currentLang==='en' ? (count!==1?' items':' item') : ' आइटम');
+  document.getElementById('cb-count').textContent = countText;
   document.getElementById('cb-total').textContent = '₹'+total;
   bar.classList.toggle('show', count>0);
 }
@@ -488,12 +557,20 @@ function closeCart(){
 function renderCartList(){
   const el = document.getElementById('cart-items-list');
   const items = Object.entries(cart);
-  if(!items.length){el.innerHTML='<div class="cart-empty">Your cart is empty</div>';document.getElementById('cart-grand-total').textContent='₹0';return;}
+  
+  if(!items.length){
+    let emptyMsg = currentLang==='en' ? 'Your cart is empty' : 'आपका कार्ट खाली है';
+    el.innerHTML=`<div class="cart-empty">${emptyMsg}</div>`;
+    document.getElementById('cart-grand-total').textContent='₹0';
+    return;
+  }
+  
   let html='',total=0;
   items.forEach(([id,item])=>{
     total+=item.price*item.qty;
+    let dispName = currentLang==='en' ? item.nameEn : item.nameHi;
     html+=`<div class="cart-item">
-      <span class="cart-item-name">${item.name}</span>
+      <span class="cart-item-name">${dispName}</span>
       <div class="qty-ctrl">
         <button class="qty-btn" onclick="cartRemove('${id}')">−</button>
         <span class="qty-num">${item.qty}</span>
@@ -506,19 +583,19 @@ function renderCartList(){
   document.getElementById('cart-grand-total').textContent='₹'+total;
 }
 
-function cartAdd(id){addItem(id,cart[id]?.price,cart[id]?.name);renderCartList();}
-function cartRemove(id){removeItem(id);renderCartList();}
-
-function buildOrderMsg(name, table){
+function buildOrderMsg(name, table, notes){
   let msg = `Hello! I want to place an order:\n\n`;
-  Object.values(cart).forEach(i=>{ msg+=`• ${i.name} × ${i.qty} = ₹${i.price*i.qty}\n`; });
+  Object.values(cart).forEach(i=>{ msg+=`• ${i.nameEn} × ${i.qty} = ₹${i.price*i.qty}\n`; });
   const total = Object.values(cart).reduce((s,i)=>s+i.price*i.qty,0);
   msg+=`\n*Total: ₹${total}*\nName: ${name}\nTable / Room: ${table}`;
+  if(notes) msg+=`\n\n*Special Request:* ${notes}`;
   return msg;
 }
 
-let pendingAction = null;
+function cartAdd(id){addItem(id,cart[id]?.price,cart[id]?.nameEn,cart[id]?.nameHi);renderCartList();}
+function cartRemove(id){removeItem(id);renderCartList();}
 
+let pendingAction = null;
 function openCustomer(action){
   pendingAction = action;
   document.getElementById('cust-modal').classList.add('show');
@@ -530,7 +607,9 @@ function closeCustomer(){ document.getElementById('cust-modal').classList.remove
 document.getElementById('cust-confirm').onclick = ()=>{
   const name = document.getElementById('cust-name').value.trim() || 'Guest';
   const table = document.getElementById('cust-table').value.trim() || 'N/A';
-  const msg = buildOrderMsg(name, table);
+  const notes = document.getElementById('cust-notes').value.trim();
+  const msg = buildOrderMsg(name, table, notes);
+  
   closeCustomer();
   closeCart();
   if(pendingAction==='wa'){
@@ -547,28 +626,96 @@ document.getElementById('cart-close').onclick = closeCart;
 document.getElementById('cart-backdrop').onclick = closeCart;
 document.getElementById('cust-backdrop').onclick = closeCustomer;
 
-// Theme
+// DUAL SEARCH SYSTEM
+const searchContainer = document.getElementById('search-container');
+document.getElementById('search-toggle').onclick = () => {
+  searchContainer.classList.toggle('active');
+  if(searchContainer.classList.contains('active')) document.getElementById('menu-search').focus();
+};
+
+document.getElementById('menu-search').addEventListener('input', function(e) {
+  const term = e.target.value.toLowerCase();
+  const sections = document.querySelectorAll('.menu-section');
+  sections.forEach(sec => {
+    let hasVisibleItem = false;
+    const items = sec.querySelectorAll('.menu-item');
+    items.forEach(item => {
+      if (item.dataset.search.includes(term)) {
+        item.style.display = 'flex';
+        hasVisibleItem = true;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+    sec.style.display = hasVisibleItem ? 'block' : 'none';
+  });
+});
+
+// CUSTOM LANGUAGE TOGGLE
+function applyLanguage() {
+  document.querySelectorAll('[data-en][data-hi]').forEach(el => {
+    el.textContent = el.getAttribute(`data-${currentLang}`);
+  });
+  for (let id in UI_LANG) {
+    let el = document.getElementById(id);
+    if(el) el.textContent = UI_LANG[id][currentLang];
+  }
+  for (let id in PLACEHOLDERS_LANG) {
+    let el = document.getElementById(id);
+    if(el) el.placeholder = PLACEHOLDERS_LANG[id][currentLang];
+  }
+  updateCartBar();
+  if (document.getElementById('cart-overlay').classList.contains('show')) renderCartList();
+}
+
+document.getElementById('lang-btn').onclick = function() {
+  currentLang = currentLang === 'en' ? 'hi' : 'en';
+  applyLanguage();
+};
+
+// SVG Theme Icons
+const sunIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+const moonIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+
+// Theme Logic
 const themeBtn = document.getElementById('theme-btn');
 let dark = localStorage.getItem('ashoka-theme')!=='light';
-function applyTheme(){ document.documentElement.setAttribute('data-theme',dark?'dark':'light'); themeBtn.textContent=dark?'☀':'☾'; localStorage.setItem('ashoka-theme',dark?'dark':'light'); }
+function applyTheme(){ 
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light'); 
+  themeBtn.innerHTML = dark ? sunIcon : moonIcon; 
+  localStorage.setItem('ashoka-theme', dark ? 'dark' : 'light'); 
+}
 themeBtn.onclick = ()=>{ dark=!dark; applyTheme(); };
 if(localStorage.getItem('ashoka-theme')==='light'){dark=false;} applyTheme();
 
-// Scroll spy
-const scrollTop = document.getElementById('scroll-top');
-window.addEventListener('scroll',()=>{
-  scrollTop.classList.toggle('show', window.scrollY>300);
-  // Tab spy
+// Scroll spy & Smooth Header Collapse
+const header = document.getElementById('main-header');
+const scrollTopBtn = document.getElementById('scroll-top');
+
+window.addEventListener('scroll', () => {
+  // Collapse Header Logic
+  if (window.scrollY > 10) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+  
+  // Scroll to top button visibility
+  scrollTopBtn.classList.toggle('show', window.scrollY > 300);
+  
+  // Tab spy logic
   let active = null;
-  MENU_DATA.forEach(s=>{
-    const slug=getSlug(s.cat);
-    const el=document.getElementById('sec-'+slug);
-    if(el && el.getBoundingClientRect().top < 130) active=slug;
+  MENU_DATA.forEach(s => {
+    const slug = getSlug(s.catEn);
+    const el = document.getElementById('sec-'+slug);
+    if(el && el.getBoundingClientRect().top < 150) active = slug;
   });
   if(active) setActiveTab(active);
-},{passive:true});
+}, {passive: true});
 
+// Initialize
 buildMenu();
+applyLanguage();
 </script>
 </body>
 </html>
