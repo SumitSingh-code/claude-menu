@@ -2,11 +2,83 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Ashoka Hotel & Restaurant – Jind</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- SEO Meta Tags -->
+<title>Ashoka Hotel & Restaurant Jind | Best Restaurant Near Bus Stand Jind Haryana</title>
+<meta name="description" content="Ashoka Hotel & Restaurant – Best restaurant in Jind Haryana near New Bus Stand. Pure Veg & Non-Veg menu with tandoori specials, North Indian, Chinese, Punjabi food. Affordable family dining, fresh hygienic food, fast delivery in Jind.">
+<meta name="keywords" content="best restaurant in Jind, Ashoka Hotel Restaurant Jind, restaurant near bus stand Jind, best food in Jind Haryana, tandoori special Jind, North Indian food Jind, Chinese food Jind, best chaap Jind, family restaurant Jind, butter naan Jind, Punjabi food Jind, best dinner Jind, lunch Jind Haryana">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Ashoka Hotel & Restaurant, Jind">
+<link rel="canonical" href="https://ashokahoteljind.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="Ashoka Hotel & Restaurant Jind | Best Restaurant Near Bus Stand">
+<meta property="og:description" content="Best restaurant in Jind Haryana. Pure Veg & Non-Veg – Tandoori, North Indian, Chinese, Punjabi food. Near New Bus Stand Jind. Family dining, hygienic & affordable.">
+<meta property="og:url" content="https://ashokahoteljind.com/">
+<meta property="og:locale" content="en_IN">
+<meta property="og:site_name" content="Ashoka Hotel & Restaurant Jind">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ashoka Hotel & Restaurant Jind – Best Food Near Bus Stand">
+<meta name="twitter:description" content="Famous family restaurant in Jind Haryana. Tandoori specials, best chaap, butter naan, North Indian & Chinese cuisine. Fresh, hygienic, affordable.">
+
+<!-- Structured Data: LocalBusiness + Restaurant -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Restaurant","LocalBusiness"],
+  "name": "Ashoka Hotel & Restaurant",
+  "alternateName": "Ashoka Restaurant Jind",
+  "description": "Best restaurant in Jind Haryana near New Bus Stand. Serving pure veg and non-veg North Indian, Punjabi, Chinese, tandoori cuisine. Famous for best chaap, butter naan, and family dining experience.",
+  "url": "https://ashokahoteljind.com/",
+  "telephone": "+918818004499",
+  "email": "ashokahoteljind@gmail.com",
+  "servesCuisine": ["North Indian","Punjabi","Chinese","Tandoori","Fast Food"],
+  "priceRange": "₹₹",
+  "hasMenu": "https://ashokahoteljind.com/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Near New Bus Stand, Haryana Roadways",
+    "addressLocality": "Jind",
+    "addressRegion": "Haryana",
+    "postalCode": "126102",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "29.3160",
+    "longitude": "76.3218"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "08:00",
+    "closes": "23:00"
+  },
+  "sameAs": ["https://wa.me/918818004499"],
+  "areaServed": {
+    "@type": "City",
+    "name": "Jind",
+    "containedIn": "Haryana, India"
+  },
+  "keywords": "best restaurant Jind, Ashoka Hotel Jind, restaurant near bus stand Jind, tandoori Jind, chaap Jind, North Indian food Jind Haryana"
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
+/* ============================================
+   CSS CUSTOM PROPERTIES
+   ============================================ */
 :root {
   --gold: #C9A84C;
   --gold-light: #E5C87A;
@@ -14,16 +86,21 @@
   --bg: #0A0A0A;
   --bg2: #111111;
   --bg3: #1A1A1A;
-  --surface: rgba(255, 255, 255, 0.05);
+  --surface: rgba(255,255,255,0.05);
   --border: #2A2A2A;
   --text: #F0EAD6;
   --text2: #A89878;
   --text3: #6A5A3A;
   --veg: #22C55E;
   --radius: 10px;
-  --tab-h: 56px;
-  --cart-h: 64px;
-  --header-bg: rgba(10, 10, 10, 0.95);
+  --tab-h: 50px;
+  --cart-h: 60px;
+  --header-bg: rgba(10,10,10,0.97);
+  /* Safe area insets for notched phones */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
 }
 [data-theme="light"] {
   --bg: #FAF7F0;
@@ -34,13 +111,53 @@
   --text: #1A1408;
   --text2: #6B5A30;
   --text3: #A89060;
-  --header-bg: rgba(250, 247, 240, 0.95);
+  --header-bg: rgba(250,247,240,0.97);
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Josefin Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s}
 
-/* HEADER ARCHITECTURE */
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*,*::before,*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+html {
+  font-size: 16px;
+  /* Prevent layout shift from scrollbar appearing */
+  overflow-y: scroll;
+  /* Smooth scroll only when not prefers-reduced-motion */
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  min-height: 100dvh; /* dynamic viewport height - keyboard-aware */
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+  /* GPU layer for smoother scrolling */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}
+
+/* When modal/cart is open — prevent body scroll without layout jump */
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  /* Preserve scroll position */
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
 #main-header {
   position: sticky;
   top: 0;
@@ -48,19 +165,21 @@ body{font-family:'Josefin Sans',sans-serif;background:var(--bg);color:var(--text
   right: 0;
   z-index: 100;
   background: var(--header-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
-  transition: background 0.3s ease, border-color 0.3s ease;
   display: flex;
   flex-direction: column;
+  /* Promote to compositing layer */
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px 8px;
+  padding: 10px 16px 6px;
 }
 
 .left-brand {
@@ -71,55 +190,63 @@ body{font-family:'Josefin Sans',sans-serif;background:var(--bg);color:var(--text
 
 .brand-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--gold);
   letter-spacing: 0.05em;
   line-height: 1;
-  margin: 0;
 }
 
 .brand-sub {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.5rem;
-  letter-spacing: 0.25em;
+  font-size: 0.48rem;
+  letter-spacing: 0.22em;
   color: var(--text2);
   text-transform: uppercase;
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
-.right-actions { 
-  display: flex; 
-  gap: 12px; 
-  align-items: center; 
+.right-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 .icon-btn {
   background: none;
   border: 1px solid var(--border);
   color: var(--text2);
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  /* Ensure minimum tap target */
+  position: relative;
 }
-.icon-btn:active { background: rgba(201, 168, 76, 0.1); color: var(--gold); border-color: var(--gold); }
+.icon-btn::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+}
+.icon-btn:active { background: rgba(201,168,76,0.12); color: var(--gold); border-color: var(--gold-dim); }
 
 .lang-btn-text {
   width: auto;
-  border-radius: 18px;
-  padding: 0 12px;
+  border-radius: 16px;
+  padding: 0 10px;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--gold);
+  letter-spacing: 0.05em;
 }
 
-/* Tabs */
+/* ============================================
+   CATEGORY TABS
+   ============================================ */
 #tabs-wrap {
   width: 100%;
   height: var(--tab-h);
@@ -127,26 +254,54 @@ body{font-family:'Josefin Sans',sans-serif;background:var(--bg);color:var(--text
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  white-space: nowrap;
-  padding: 8px 0;
+  padding: 7px 0;
+  /* Promote to own layer */
+  will-change: scroll-position;
 }
-#tabs-wrap::-webkit-scrollbar{display:none}
-#tabs{display:inline-flex;align-items:center;height:100%;padding:0 16px;gap:8px}
-.tab-btn{display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:20px;border:1px solid var(--border);background:none;color:var(--text2);font-family:'Josefin Sans',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:all .2s}
-.tab-btn.active{background:var(--gold);color:#0A0A0A;border-color:var(--gold)}
-
-/* Collapsible Section */
-.collapsible-section {
-  display: flex;
-  flex-direction: column;
+#tabs-wrap::-webkit-scrollbar { display: none; }
+#tabs {
+  display: inline-flex;
   align-items: center;
-  overflow: hidden;
-  max-height: 250px;
-  opacity: 1;
-  padding: 10px 16px 16px;
-  transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease, padding 0.3s ease;
+  height: 100%;
+  padding: 0 16px;
+  gap: 7px;
+}
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--text2);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  /* Tap target */
+  position: relative;
+}
+.tab-btn.active {
+  background: var(--gold);
+  color: #0A0A0A;
+  border-color: var(--gold);
 }
 
+/* ============================================
+   COLLAPSIBLE HERO SECTION
+   ============================================ */
+.collapsible-section {
+  overflow: hidden;
+  max-height: 120px;
+  opacity: 1;
+  padding: 6px 16px 12px;
+  transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.25s ease, padding 0.25s ease;
+}
 #main-header.scrolled .collapsible-section {
   max-height: 0;
   opacity: 0;
@@ -158,198 +313,667 @@ body{font-family:'Josefin Sans',sans-serif;background:var(--bg);color:var(--text
 .brand-tagline {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: var(--gold);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  text-align: center;
+  display: block;
 }
-
-.hero-divider {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto 16px;
-}
-.hero-divider span { flex: 1; height: 1px; background: var(--border); }
-.hero-divider em { color: var(--gold); font-size: 0.6rem; font-style: normal; }
 
 .search-container {
-  width: 100%;
   position: relative;
 }
-
 .search-icon-svg {
   position: absolute;
-  left: 16px;
+  left: 14px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--text3);
+  pointer-events: none;
 }
-
 #menu-search {
   width: 100%;
-  background: var(--surface);
+  background: var(--bg3);
   border: 1px solid var(--border);
   color: var(--text);
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.95rem;
-  padding: 14px 16px 14px 44px;
-  border-radius: 12px;
+  font-size: 0.9rem;
+  padding: 11px 14px 11px 40px;
+  border-radius: 10px;
   outline: none;
-  transition: border-color 0.3s, background 0.3s;
+  transition: border-color 0.2s, background 0.2s;
+  /* Prevent iOS zoom on focus */
+  font-size: max(16px, 0.9rem);
 }
-#menu-search:focus { border-color: var(--gold); background: rgba(128, 128, 128, 0.1); }
+#menu-search:focus { border-color: var(--gold); background: rgba(201,168,76,0.04); }
 #menu-search::placeholder { color: var(--text3); }
 
-/* MAIN CONTENT */
-#main{padding-top: 8px; padding-bottom:calc(var(--cart-h) + 24px);min-height:100vh}
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+#main {
+  padding-top: 4px;
+  padding-bottom: calc(var(--cart-h) + var(--safe-bottom) + 20px);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
 
-.menu-section{padding:0 16px 8px}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--gold);padding:20px 0 6px;letter-spacing:.02em}
-.section-line{height:1px;background:linear-gradient(90deg,var(--gold-dim),transparent);margin-bottom:12px}
+.menu-section { padding: 0 16px 4px; }
 
-.menu-item{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--border)}
-.menu-item:last-child{border-bottom:none}
-.item-veg{width:14px;height:14px;border:1.5px solid var(--veg);border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.item-veg::after{content:'';width:7px;height:7px;background:var(--veg);border-radius:50%;display:block}
-.item-info{flex:1;min-width:0}
-.item-name{font-size:.92rem;font-weight:600;letter-spacing:.02em;line-height:1.3;color:var(--text)}
-.item-desc{font-size:.72rem;color:var(--text2);margin-top:2px;line-height:1.4;font-weight:300}
-.item-price{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--gold);white-space:nowrap;margin-right:10px;flex-shrink:0}
-.item-ctrl{flex-shrink:0}
-.add-btn{background:none;border:1px solid var(--gold);color:var(--gold);width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:1.4rem;line-height:1;display:flex;align-items:center;justify-content:center;font-weight:300;transition:background .15s}
-.add-btn:active{background:var(--gold);color:#000}
-.qty-ctrl{display:flex;align-items:center;gap:0;border:1px solid var(--gold);border-radius:8px;overflow:hidden}
-.qty-btn{background:none;border:none;color:var(--gold);width:32px;height:34px;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;font-weight:700}
-.qty-btn:active{background:var(--gold);color:#000}
-.qty-num{width:28px;text-align:center;font-weight:700;font-size:.9rem;color:var(--text);background:var(--bg3)}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--gold);
+  padding: 16px 0 4px;
+  letter-spacing: 0.02em;
+}
+.section-line {
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-dim), transparent);
+  margin-bottom: 8px;
+}
 
-/* CART BAR */
-#cart-bar{position:fixed;bottom:0;left:0;right:0;height:var(--cart-h);background:var(--gold);display:none;align-items:center;justify-content:space-between;padding:0 20px;cursor:pointer;z-index:200;transition:transform .25s}
-#cart-bar.show{display:flex}
-.cart-bar-left{display:flex;flex-direction:column}
-.cart-bar-count{font-size:.72rem;letter-spacing:.1em;font-weight:600;color:#3A2800;text-transform:uppercase}
-.cart-bar-label{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:#000}
-.cart-bar-total{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:#000}
-.cart-bar-arrow{font-size:1.3rem;color:#3A2800}
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+}
+.menu-item:last-child { border-bottom: none; }
 
-/* CART OVERLAY */
-#cart-overlay{position:fixed;inset:0;z-index:300;display:none;flex-direction:column}
-#cart-overlay.show{display:flex}
-.cart-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.7)}
-.cart-sheet{position:absolute;bottom:0;left:0;right:0;background:var(--bg2);border-radius:20px 20px 0 0;max-height:90vh;display:flex;flex-direction:column;animation:slideUp .3s ease}
-@keyframes slideUp{from{transform:translateY(60px);opacity:0}to{transform:translateY(0);opacity:1}}
-.cart-header{padding:20px 20px 12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
-.cart-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--gold)}
-.close-btn{background:var(--bg3);border:none;color:var(--text2);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center}
-.cart-items{flex:1;overflow-y:auto;padding:12px 20px}
-.cart-empty{text-align:center;padding:40px 20px;color:var(--text2);font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic}
-.cart-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
-.cart-item-name{flex:1;font-size:.88rem;font-weight:600;color:var(--text)}
-.cart-item-price{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--gold);margin-right:8px}
-.cart-footer{padding:16px 20px;border-top:1px solid var(--border)}
+.item-veg {
+  width: 13px;
+  height: 13px;
+  border: 1.5px solid var(--veg);
+  border-radius: 2px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+.item-veg::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--veg);
+  border-radius: 50%;
+  display: block;
+}
+.item-info { flex: 1; min-width: 0; }
+.item-name {
+  font-size: 0.87rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  color: var(--text);
+}
+.item-desc {
+  font-size: 0.68rem;
+  color: var(--text3);
+  margin-top: 1px;
+  line-height: 1.35;
+  font-weight: 300;
+}
+.item-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold);
+  white-space: nowrap;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+.item-ctrl { flex-shrink: 0; }
 
-.cart-notes { width: 100%; background: var(--bg3); border: 1px solid var(--border); color: var(--text); font-family: 'Josefin Sans', sans-serif; font-size: .9rem; padding: 12px 14px; border-radius: var(--radius); outline: none; transition: border-color .2s; resize: none; height: 65px; margin-bottom: 16px; display: block; }
+.add-btn {
+  background: none;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+  transition: background 0.12s, color 0.12s;
+  touch-action: manipulation;
+}
+.add-btn:active { background: var(--gold); color: #000; }
+
+.qty-ctrl {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.qty-btn {
+  background: none;
+  border: none;
+  color: var(--gold);
+  width: 30px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  touch-action: manipulation;
+  transition: background 0.1s, color 0.1s;
+}
+.qty-btn:active { background: var(--gold); color: #000; }
+.qty-num {
+  width: 26px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text);
+  background: var(--bg3);
+  line-height: 32px;
+  height: 32px;
+}
+
+/* ============================================
+   CART BAR — keyboard-safe
+   ============================================ */
+#cart-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* Account for safe area (notched phones) */
+  padding: 0 20px calc(var(--safe-bottom) + 2px);
+  height: calc(var(--cart-h) + var(--safe-bottom));
+  background: var(--gold);
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 200;
+  transition: transform 0.25s;
+  /* Promote to own layer */
+  will-change: transform;
+  transform: translateZ(0);
+}
+#cart-bar.show { display: flex; }
+.cart-bar-left { display: flex; flex-direction: column; }
+.cart-bar-count {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: #3A2800;
+  text-transform: uppercase;
+}
+.cart-bar-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+}
+.cart-bar-total {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #000;
+}
+.cart-bar-arrow { font-size: 1.2rem; color: #3A2800; }
+
+/* ============================================
+   CART OVERLAY — keyboard-safe bottom sheet
+   ============================================ */
+#cart-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: none;
+  flex-direction: column;
+  /* Use dvh so keyboard pushes sheet up */
+  height: 100dvh;
+  height: 100vh; /* fallback */
+}
+#cart-overlay.show { display: flex; }
+
+.cart-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+}
+
+.cart-sheet {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg2);
+  border-radius: 18px 18px 0 0;
+  /* Max height respects keyboard */
+  max-height: 88vh;
+  max-height: 88dvh;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.28s cubic-bezier(0.25,1,0.5,1);
+  /* Keyboard push-up */
+  transition: max-height 0.3s ease;
+  padding-bottom: var(--safe-bottom);
+}
+
+/* When keyboard is visible, the cart sheet gets pushed up via JS */
+.cart-sheet.keyboard-up {
+  bottom: var(--keyboard-height, 0px);
+  max-height: calc(100dvh - var(--keyboard-height, 0px) - 20px);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.cart-header {
+  padding: 16px 18px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.cart-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+.close-btn {
+  background: var(--bg3);
+  border: none;
+  color: var(--text2);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+  /* Larger tap target */
+  position: relative;
+}
+.close-btn::after { content: ''; position: absolute; inset: -8px; }
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: 8px 18px;
+}
+.cart-empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--text2);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.cart-item:last-child { border-bottom: none; }
+.cart-item-name {
+  flex: 1;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+}
+.cart-item-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-right: 4px;
+  white-space: nowrap;
+}
+
+.cart-footer {
+  padding: 12px 18px;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.cart-notes {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'Josefin Sans', sans-serif;
+  /* Prevent iOS zoom */
+  font-size: max(16px, 0.88rem);
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  outline: none;
+  resize: none;
+  height: 58px;
+  margin-bottom: 12px;
+  display: block;
+  transition: border-color 0.2s;
+}
 .cart-notes:focus { border-color: var(--gold); }
 .cart-notes::placeholder { color: var(--text3); }
 
-.cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.cart-total-label{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);font-weight:600}
-.cart-total-val{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--gold)}
-.order-btns{display:flex;gap:10px}
-.wa-btn{flex:1;background:var(--gold);color:#000;border:none;height:52px;border-radius:var(--radius);font-family:'Josefin Sans',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity .2s}
-.wa-btn:active{opacity:.85}
-.email-btn{background:none;border:1.5px solid var(--border);color:var(--text2);height:52px;border-radius:var(--radius);font-family:'Josefin Sans',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0 16px;white-space:nowrap}
+.cart-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.cart-total-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text2);
+  font-weight: 600;
+}
+.cart-total-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+}
 
-/* CUSTOMER MODAL WITH ROOM/TABLE TOGGLE */
-#cust-modal{position:fixed;inset:0;z-index:400;display:none;align-items:flex-end;justify-content:center}
-#cust-modal.show{display:flex}
-.cust-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.8)}
-.cust-box{position:relative;background:var(--bg2);border-radius:20px 20px 0 0;width:100%;padding:28px 24px 32px;animation:slideUp .3s ease}
-.cust-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--gold);margin-bottom:20px}
-.cust-input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);font-family:'Josefin Sans',sans-serif;font-size:.95rem;padding:14px 16px;border-radius:var(--radius);outline:none;margin-bottom:12px;transition:border-color .2s}
-.cust-input:focus{border-color:var(--gold)}
-.cust-input::placeholder{color:var(--text3)}
+.order-btns { display: flex; gap: 8px; }
+.wa-btn {
+  flex: 1;
+  background: var(--gold);
+  color: #000;
+  border: none;
+  height: 50px;
+  border-radius: var(--radius);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  touch-action: manipulation;
+  transition: opacity 0.15s;
+}
+.wa-btn:active { opacity: 0.85; }
+.email-btn {
+  background: none;
+  border: 1.5px solid var(--border);
+  color: var(--text2);
+  height: 50px;
+  border-radius: var(--radius);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0 14px;
+  white-space: nowrap;
+  touch-action: manipulation;
+}
 
-/* Segmented Control for Table/Room */
-.type-selector { display: flex; gap: 10px; margin-bottom: 12px; }
+/* ============================================
+   CUSTOMER MODAL — keyboard-aware
+   ============================================ */
+#cust-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  /* dvh for keyboard-awareness */
+  height: 100dvh;
+  height: 100vh;
+}
+#cust-modal.show { display: flex; }
+
+.cust-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.82);
+}
+
+.cust-box {
+  position: relative;
+  background: var(--bg2);
+  border-radius: 18px 18px 0 0;
+  width: 100%;
+  padding: 24px 20px;
+  padding-bottom: calc(24px + var(--safe-bottom));
+  animation: slideUp 0.28s cubic-bezier(0.25,1,0.5,1);
+  /* Overflow allows scrolling if keyboard pushes content */
+  overflow-y: auto;
+  max-height: 90dvh;
+  max-height: 90vh;
+  transition: transform 0.3s ease;
+}
+
+/* Keyboard-up state: shift modal up */
+.cust-box.keyboard-up {
+  transform: translateY(calc(-1 * var(--keyboard-height, 0px)));
+}
+
+.cust-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.cust-input {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'Josefin Sans', sans-serif;
+  /* Prevent iOS zoom */
+  font-size: max(16px, 0.93rem);
+  padding: 13px 14px;
+  border-radius: var(--radius);
+  outline: none;
+  margin-bottom: 10px;
+  transition: border-color 0.2s;
+  display: block;
+}
+.cust-input:focus { border-color: var(--gold); }
+.cust-input::placeholder { color: var(--text3); }
+
+/* Segmented control */
+.type-selector {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
 .type-radio { flex: 1; position: relative; }
 .type-radio input { display: none; }
-.type-label { display: block; text-align: center; background: var(--bg3); border: 1px solid var(--border); color: var(--text2); padding: 12px; border-radius: var(--radius); font-family: 'Josefin Sans', sans-serif; font-size: .95rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-.type-radio input:checked + .type-label { background: rgba(201, 168, 76, 0.1); border-color: var(--gold); color: var(--gold); }
+.type-label {
+  display: block;
+  text-align: center;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 11px;
+  border-radius: var(--radius);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  touch-action: manipulation;
+}
+.type-radio input:checked + .type-label {
+  background: rgba(201,168,76,0.1);
+  border-color: var(--gold);
+  color: var(--gold);
+}
 
-/* Error Message */
-#cust-error { color: #ef4444; font-size: 0.85rem; margin-bottom: 12px; text-align: center; display: none; }
+#cust-error {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  text-align: center;
+  display: none;
+}
 
-.cust-go{width:100%;background:var(--gold);color:#000;border:none;height:52px;border-radius:var(--radius);font-family:'Josefin Sans',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;margin-top:4px}
+.cust-go {
+  width: 100%;
+  background: var(--gold);
+  color: #000;
+  border: none;
+  height: 50px;
+  border-radius: var(--radius);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 4px;
+  touch-action: manipulation;
+  transition: opacity 0.15s;
+}
+.cust-go:active { opacity: 0.85; }
 
-/* SCROLL TO TOP */
-#scroll-top{position:fixed;bottom:calc(var(--cart-h) + 16px);right:16px;width:44px;height:44px;background:var(--bg3);border:1px solid var(--border);border-radius:50%;color:var(--text2);font-size:1.1rem;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:150}
-#scroll-top.show{display:flex}
+/* ============================================
+   SCROLL TO TOP
+   ============================================ */
+#scroll-top {
+  position: fixed;
+  bottom: calc(var(--cart-h) + var(--safe-bottom) + 12px);
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text2);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 150;
+  touch-action: manipulation;
+}
+#scroll-top.show { display: flex; }
+
+/* ============================================
+   SEO-ONLY HIDDEN CONTENT (Accessible)
+   ============================================ */
+.seo-region {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================
+   SEARCH HIGHLIGHT
+   ============================================ */
+.menu-item[data-hidden="true"] { display: none; }
+
+/* ============================================
+   PERFORMANCE: reduce paint on scroll
+   ============================================ */
+.menu-section {
+  contain: layout style;
+}
 </style>
 </head>
 <body>
 
-<header id="main-header">
+<!-- SEO: Hidden semantic content for crawlers -->
+<section class="seo-region" aria-hidden="true">
+  <h1>Ashoka Hotel &amp; Restaurant – Best Restaurant in Jind Haryana</h1>
+  <p>Located near New Bus Stand, Jind Haryana (Near Haryana Roadways). Ashoka Hotel &amp; Restaurant is the most famous and best-rated family restaurant in Jind. We serve pure veg and non-veg dishes including tandoori specials, best chaap in Jind, butter naan, North Indian curries, Chinese food, Punjabi food, and fresh hygienic meals at affordable prices. Best dinner place and lunch spot in Jind. Customer favourite restaurant for fast food delivery in Jind.</p>
+</section>
+
+<header id="main-header" role="banner">
   <div class="top-bar">
     <div class="left-brand">
-      <h1 class="brand-name">Ashoka</h1>
+      <span class="brand-name" aria-label="Ashoka Hotel and Restaurant">Ashoka</span>
       <span class="brand-sub">Hotel &amp; Restaurant · Jind</span>
     </div>
     <div class="right-actions">
-      <!-- Translate Button Added Here -->
-      <button class="icon-btn lang-btn-text" id="lang-btn" title="Translate">EN / हि</button>
-      <button class="icon-btn" id="theme-btn" aria-label="Toggle Theme">
-        <svg id="theme-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      <button class="icon-btn lang-btn-text" id="lang-btn" aria-label="Switch language to Hindi">EN / हि</button>
+      <button class="icon-btn" id="theme-btn" aria-label="Toggle light/dark theme">
+        <svg id="theme-icon-svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
     </div>
   </div>
 
-  <div id="tabs-wrap"><div id="tabs"></div></div>
+  <nav id="tabs-wrap" role="navigation" aria-label="Menu categories">
+    <div id="tabs"></div>
+  </nav>
 
   <div class="collapsible-section" id="header-collapsible">
-    <p class="brand-tagline" id="ui-tagline">Fine Dining &amp; Room Service</p>
-    <div class="hero-divider"><span></span><em>✦</em><span></span></div>
-    
-    <div class="search-container" id="search-container">
-      <svg class="search-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input type="text" id="menu-search" placeholder="Search for food (e.g. Pizza, Dal...)" autocomplete="off">
+    <span class="brand-tagline" id="ui-tagline">Fine Dining &amp; Room Service</span>
+    <div class="search-container">
+      <svg class="search-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <label for="menu-search" class="seo-region">Search menu items</label>
+      <input type="search" id="menu-search" placeholder="Search dishes (e.g. Paneer, Naan…)" autocomplete="off" autocorrect="off" spellcheck="false" inputmode="search">
     </div>
   </div>
 </header>
 
-<div id="main">
+<main id="main" role="main">
   <div id="menu-root"></div>
-</div>
+</main>
 
-<div id="cart-bar">
+<!-- CART BAR -->
+<div id="cart-bar" role="button" tabindex="0" aria-label="Open cart" aria-live="polite">
   <div class="cart-bar-left">
     <span class="cart-bar-count" id="cb-count">0 items</span>
     <span class="cart-bar-label" id="ui-view-cart">View Cart</span>
   </div>
   <span class="cart-bar-total" id="cb-total">₹0</span>
-  <span class="cart-bar-arrow">›</span>
+  <span class="cart-bar-arrow" aria-hidden="true">›</span>
 </div>
 
-<div id="cart-overlay">
+<!-- CART OVERLAY -->
+<div id="cart-overlay" role="dialog" aria-modal="true" aria-label="Your order cart">
   <div class="cart-backdrop" id="cart-backdrop"></div>
-  <div class="cart-sheet">
+  <div class="cart-sheet" id="cart-sheet">
     <div class="cart-header">
       <span class="cart-title" id="ui-your-order">Your Order</span>
-      <button class="close-btn" id="cart-close">✕</button>
+      <button class="close-btn" id="cart-close" aria-label="Close cart">✕</button>
     </div>
-    <div class="cart-items" id="cart-items-list"></div>
+    <div class="cart-items" id="cart-items-list" role="list"></div>
     <div class="cart-footer">
-      <textarea class="cart-notes" id="cart-notes" placeholder="Special Request for Chef (e.g. less spicy)"></textarea>
-      
+      <label for="cart-notes" class="seo-region">Special instructions for chef</label>
+      <textarea class="cart-notes" id="cart-notes" placeholder="Special Request for Chef (e.g. less spicy)" rows="2"></textarea>
       <div class="cart-total-row">
         <span class="cart-total-label" id="ui-total">Total</span>
         <span class="cart-total-val" id="cart-grand-total">₹0</span>
       </div>
       <div class="order-btns">
         <button class="wa-btn" id="wa-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           <span id="ui-wa-btn">Order on WhatsApp</span>
         </button>
         <button class="email-btn" id="email-btn"><span id="ui-email-btn">✉ Email</span></button>
@@ -358,14 +982,16 @@ body{font-family:'Josefin Sans',sans-serif;background:var(--bg);color:var(--text
   </div>
 </div>
 
-<div id="cust-modal">
+<!-- CUSTOMER MODAL -->
+<div id="cust-modal" role="dialog" aria-modal="true" aria-labelledby="ui-modal-title">
   <div class="cust-backdrop" id="cust-backdrop"></div>
-  <div class="cust-box">
+  <div class="cust-box" id="cust-box">
     <div class="cust-title" id="ui-modal-title">Your Details</div>
-    
-    <input class="cust-input" id="cust-name" type="text" placeholder="Your Name" autocomplete="name">
-    
-    <div class="type-selector">
+
+    <label for="cust-name" class="seo-region">Your name</label>
+    <input class="cust-input" id="cust-name" type="text" placeholder="Your Name" autocomplete="name" autocapitalize="words">
+
+    <div class="type-selector" role="group" aria-label="Dining type">
       <label class="type-radio">
         <input type="radio" name="order-type" value="Table" id="type-table">
         <span class="type-label" id="ui-type-table">Table</span>
@@ -376,414 +1002,590 @@ body{font-family:'Josefin Sans',sans-serif;background:var(--bg);color:var(--text
       </label>
     </div>
 
-    <input class="cust-input" id="cust-number" type="text" placeholder="Select Table or Room">
-    
-    <div id="cust-error"></div>
+    <label for="cust-number" class="seo-region">Table or room number</label>
+    <input class="cust-input" id="cust-number" type="text" inputmode="numeric" placeholder="Select Table or Room first" autocomplete="off">
 
+    <div id="cust-error" role="alert"></div>
     <button class="cust-go" id="cust-confirm">Place Order →</button>
   </div>
 </div>
 
-<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+<button id="scroll-top" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
 </button>
 
 <script>
+/* ============================================
+   CONFIGURATION & DATA
+   ============================================ */
 let currentLang = 'en';
 
 const UI_LANG = {
-  "ui-tagline": { en: "Fine Dining & Room Service", hi: "फाइन डाइनिंग और रूम सर्विस" },
+  "ui-tagline":   { en: "Fine Dining & Room Service", hi: "फाइन डाइनिंग और रूम सर्विस" },
   "ui-view-cart": { en: "View Cart", hi: "कार्ट देखें" },
-  "ui-your-order": { en: "Your Order", hi: "आपका ऑर्डर" },
-  "ui-total": { en: "Total", hi: "कुल" },
-  "ui-wa-btn": { en: "Order on WhatsApp", hi: "व्हाट्सएप पर ऑर्डर करें" },
+  "ui-your-order":{ en: "Your Order", hi: "आपका ऑर्डर" },
+  "ui-total":     { en: "Total", hi: "कुल" },
+  "ui-wa-btn":    { en: "Order on WhatsApp", hi: "व्हाट्सएप पर ऑर्डर करें" },
   "ui-email-btn": { en: "✉ Email", hi: "✉ ईमेल" },
-  "ui-modal-title": { en: "Your Details", hi: "आपके विवरण" },
-  "ui-type-table": { en: "Table", hi: "टेबल" },
+  "ui-modal-title":{ en: "Your Details", hi: "आपके विवरण" },
+  "ui-type-table":{ en: "Table", hi: "टेबल" },
   "ui-type-room": { en: "Room", hi: "रूम" },
   "cust-confirm": { en: "Place Order →", hi: "ऑर्डर प्लेस करें →" },
-  "lang-btn": { en: "EN / हि", hi: "हि / EN" }
+  "lang-btn":     { en: "EN / हि", hi: "हि / EN" }
 };
 
 const PLACEHOLDERS_LANG = {
-  "menu-search": { en: "Search for food (e.g. Pizza, Dal...)", hi: "खाना खोजें (जैसे पिज्जा, दाल...)" },
-  "cust-name": { en: "Your Name", hi: "आपका नाम" },
-  "cust-number": { en: "Select Table or Room first", hi: "पहले टेबल या रूम चुनें" },
-  "cart-notes": { en: "Special Request for Chef (e.g. less spicy)", hi: "शेफ के लिए विशेष अनुरोध (जैसे कम तीखा)" }
+  "menu-search":  { en: "Search dishes (e.g. Paneer, Naan…)", hi: "खाना खोजें (जैसे पनीर, नान…)" },
+  "cust-name":    { en: "Your Name", hi: "आपका नाम" },
+  "cust-number":  { en: "Select Table or Room first", hi: "पहले टेबल या रूम चुनें" },
+  "cart-notes":   { en: "Special Request for Chef (e.g. less spicy)", hi: "शेफ के लिए विशेष अनुरोध (जैसे कम तीखा)" }
 };
 
 const MENU_DATA = [
-  {catEn:"Soup", catHi:"सूप", items:[{nEn:"Hot & Sour Soup",nHi:"हॉट एंड सॉर सूप",p:120},{nEn:"Sweet Corn Soup",nHi:"स्वीट कॉर्न सूप",p:120},{nEn:"Tomato Soup",nHi:"टोमैटो सूप",p:120},{nEn:"Veg Clear Soup",nHi:"वेज क्लियर सूप",p:120}]},
-  {catEn:"Starters", catHi:"स्टार्टर्स", items:[{nEn:"Roasted Papad",nHi:"रोस्टेड पापड़",p:65},{nEn:"Fried Papad",nHi:"फ्राइड पापड़",p:75},{nEn:"Plain Nachos",nHi:"प्लेन नाचोज",p:135},{nEn:"French Fries",nHi:"फ्रेंच फ्राइज",p:155},{nEn:"Masala Papad",nHi:"मसाला पापड़",p:155},{nEn:"Peri Peri Fries",nHi:"पेरी पेरी फ्राइज",p:175},{nEn:"Mix Pakora",nHi:"मिक्स पकोड़ा",p:175},{nEn:"Fried Potato Chaat",nHi:"फ्राइड पोटैटो चाat",p:175},{nEn:"Cone Papad Chaat",nHi:"कोन पापड़ चाट",p:195},{nEn:"Veg Cutlet (8pcs)",nHi:"वेज कटलेट (8 पीस)",p:200},{nEn:"Haryali Kabab (8pcs)",nHi:"हरियाली कबाब (8 पीस)",p:200},{nEn:"Chana Chaat",nHi:"चना चाट",p:205},{nEn:"Fried Peanut Masala",nHi:"फ्राइड पीनट मसाला",p:205},{nEn:"Fried Peanut with Cheese",nHi:"फ्राइड पीनट विद चीज",p:225},{nEn:"Paneer Pakora",nHi:"पनीर पकोड़ा",p:225},{nEn:"Loaded Cheesy Fries",nHi:"लोडेड चीजी फ्राइज",p:225},{nEn:"Nachos with Cheese",nHi:"नाचोज विद चीज",p:235},{nEn:"Dahi Se Sholey",nHi:"दही से शोले",p:250},{nEn:"Dahi Ke Kabab (8pcs)",nHi:"दही के कबाब (8 पीस)",p:270},{nEn:"Stuff Cheese Corn Tikki",nHi:"स्टफ चीज कॉर्न टिक्की",p:280},{nEn:"Kurkuri Corns with Cheese",nHi:"कुरकुरी कॉर्न्स विद चीज",p:295},{nEn:"Paneer Cutlet",nHi:"पनीर कटलेट",p:335}]},
-  {catEn:"Sandwich", catHi:"सैंडविच", items:[{nEn:"Veg Sandwich",nHi:"वेज सैंडविच",p:80},{nEn:"Tomato Sandwich",nHi:"टोमैटो सैंडविच",p:80},{nEn:"Cheese Sandwich",nHi:"चीज सैंडविच",p:100},{nEn:"Grilled Sandwich",nHi:"ग्रिल्ड सैंडविच",p:100},{nEn:"Club Sandwich",nHi:"क्लब सैंडविच",p:120},{nEn:"Paneer Sandwich",nHi:"पनीर सैंडविच",p:120}]},
-  {catEn:"Burgers", catHi:"बर्गर", items:[{nEn:"Aloo Classic Burger",nHi:"आलू क्लासिक बर्गर",p:80},{nEn:"Aloo Cheese Burger",nHi:"आलू चीज बर्गर",p:100},{nEn:"Paneer Tikka Burger",nHi:"पनीर टिक्का बर्गर",p:120},{nEn:"Crispy Paneer Burger",nHi:"क्रिस्पी पनीर बर्गर",p:130},{nEn:"Spl. Better Burger",nHi:"स्पेशल बेटर बर्गर",p:150},{nEn:"Burger + Fries",nHi:"बर्गर + फ्राइज",p:180}]},
-  {catEn:"Pizza", catHi:"पिज्जा", items:[{nEn:"Cheese Tomato Pizza",nHi:"चीज टोमैटो पिज्जा",p:240},{nEn:"Mushroom Pizza",nHi:"मशरूम पिज्जा",p:260},{nEn:"Margherita Pizza",nHi:"मार्घेरिटा पिज्जा",p:280},{nEn:"Sweet Corn Pizza",nHi:"स्वीट कॉर्न पिज्जा",p:280},{nEn:"Paneer Tikka Pizza",nHi:"पनीर टिक्का पिज्जा",p:300},{nEn:"Farmer's Choice Pizza",nHi:"फार्मर चॉइस पिज्जा",p:300}]},
-  {catEn:"Tandoori Starters", catHi:"तंदूरी स्टार्टर्स", items:[{nEn:"Veg Sheekh Kababa",nHi:"वेज सीख कबाब",p:200},{nEn:"Malai Chaap",nHi:"मलाई चाप",p:220},{nEn:"Mushroom Tikka",nHi:"मशरूम टिक्का",p:240},{nEn:"Paneer Tikka",nHi:"पनीर टिक्का",p:240},{nEn:"Paneer Haryali Tikka",nHi:"पनीर हरियाली टिक्का",p:240},{nEn:"Afghani Tikka",nHi:"अफगानी टिक्का",p:250},{nEn:"Garlic Paneer Tikka",nHi:"गार्लिक पनीर टिक्का",p:250},{nEn:"Tandoori Soya Chaap",nHi:"तंदूरी सोया चाप",p:250},{nEn:"Achaari Chaap",nHi:"अचारी चाप",p:250},{nEn:"Paneer Achaari Tikka",nHi:"पनीर अचारी टिक्का",p:260},{nEn:"Malai Paneer Tikka",nHi:"मलाई पनीर टिक्का",p:260},{nEn:"Tandoori Platter",nHi:"तंदूरी प्लेटर",p:350}]},
-  {catEn:"Salads", catHi:"सलाद", items:[{nEn:"Green Salad",nHi:"ग्रीन सलाद",p:80},{nEn:"Kachumber Salad",nHi:"कचूम्बर सलाद",p:120},{nEn:"Greek Salad",nHi:"ग्रीक सलाद",p:180},{nEn:"Cucumber Mint Salad",nHi:"कुकुंबर मिंट सलाद",p:185},{nEn:"Garlic Corn Salad",nHi:"गार्लिक कॉर्न सलाद",p:195},{nEn:"High Protein Salad",nHi:"हाई प्रोटीन सलाद",p:295}]},
-  {catEn:"Chinese", catHi:"चाइनीज", items:[{nEn:"Chilli Potato",nHi:"चिल्ली पोटैटो",p:200},{nEn:"Honey Chilli Potato",nHi:"हनी चिल्ली पोटैटो",p:225},{nEn:"Veg Spring Rolls",nHi:"वेज स्प्रिंग रोल्स",p:225},{nEn:"Veg Manchurian Dry",nHi:"वेज मंचूरियन ड्राय",p:240},{nEn:"Veg Manchurian Gravy",nHi:"वेज मंचूरियन ग्रेवी",p:265},{nEn:"Chilli Mushroom Dry",nHi:"चिल्ली मशरूम ड्राय",p:270},{nEn:"Chilli Baby Corn",nHi:"चिल्ली बेबी कॉर्न",p:280},{nEn:"Chilli Panner Dry",nHi:"चिल्ली पनीर ड्राय",p:320},{nEn:"Chilli Panner Gravy",nHi:"चिल्ली पनीर ग्रेवी",p:355},{nEn:"Chinese Sizzler",nHi:"चाइनीज सिज़लर",p:499}]},
-  {catEn:"Noodles & Rice", catHi:"नूडल्स एंड राइस", items:[{nEn:"Veg Noodles",nHi:"वेज नूडल्स",p:195},{nEn:"Hakka Noodles",nHi:"हक्का नूडल्स",p:235},{nEn:"Garlic Noodles",nHi:"गार्लिक नूडल्स",p:205},{nEn:"Chilli Garlic Noodles",nHi:"चिल्ली गार्लिक नूडल्स",p:205},{nEn:"Singapore Noodles",nHi:"सिंगापुर नूडल्स",p:235},{nEn:"Veg Fried Rice",nHi:"वेज फ्राइड राइस",p:215},{nEn:"Schezwan Fried Rice",nHi:"शेजवान फ्राइड राइस",p:215},{nEn:"Mushroom Fried Rice",nHi:"मशरूम फ्राइड राइस",p:215},{nEn:"Chilli Garlic Fried Rice",nHi:"चिल्ली गार्लिक फ्राइड राइस",p:215}]},
-  {catEn:"Pasta", catHi:"पास्ता", items:[{nEn:"White Sauce Pasta",nHi:"व्हाइट सॉस पास्ता",p:250},{nEn:"Red Sauce Pasta",nHi:"रेड सॉस पास्ता",p:200},{nEn:"Mix Sauce Pasta",nHi:"मिक्स सॉस पास्ता",p:210}]},
-  {catEn:"Main Course (Dal)", catHi:"मेन कोर्स (दाल)", items:[{nEn:"Dal Tadka (Half)",nHi:"दाल तड़का (हाफ)",p:130},{nEn:"Dal Tadka (Full)",nHi:"दाल तड़का (फुल)",p:200},{nEn:"Rajma Rasile (Half)",nHi:"राजमा रसीले (हाफ)",p:120},{nEn:"Rajma Rasile (Full)",nHi:"राजमा रसीले (फुल)",p:200},{nEn:"Dal Handi (Half)",nHi:"दाल हांडी (हाफ)",p:140},{nEn:"Dal Handi (Full)",nHi:"दाल हांडी (फुल)",p:230},{nEn:"Chana Masala (Half)",nHi:"चना मसाला (हाफ)",p:160},{nEn:"Chana Masala (Full)",nHi:"चना मसाला (फुल)",p:240},{nEn:"Chana Pindi (Half)",nHi:"चना पिंडी (हाफ)",p:170},{nEn:"Chana Pindi (Full)",nHi:"चना पिंडी (फुल)",p:250},{nEn:"Dal Makhani (Half)",nHi:"दाल मखनी (हाफ)",p:150},{nEn:"Dal Makhani (Full)",nHi:"दाल मखनी (फुल)",p:250}]},
-  {catEn:"Main Course (Paneer)", catHi:"मेन कोर्स (पनीर)", items:[{nEn:"Paneer Makhani (Half)",nHi:"पनीर मखनी (हाफ)",p:170},{nEn:"Paneer Makhani (Full)",nHi:"पनीर मखनी (फुल)",p:250},{nEn:"Paneer Malai Methi (Half)",nHi:"पनीर मलाई मेथी (हाफ)",p:180},{nEn:"Paneer Malai Methi (Full)",nHi:"पनीर मलाई मेथी (फुल)",p:300},{nEn:"Paneer Kali Mirch (Half)",nHi:"पनीर काली मिर्च (हाफ)",p:180},{nEn:"Paneer Kali Mirch (Full)",nHi:"पनीर काली मिर्च (फुल)",p:300},{nEn:"Paneer Butter Masala (Half)",nHi:"पनीर बटर मसाला (हाफ)",p:190},{nEn:"Paneer Butter Masala (Full)",nHi:"पनीर बटर मसाला (फुल)",p:300},{nEn:"Kadhai Paneer (Half)",nHi:"कढ़ाई पनीर (हाफ)",p:180},{nEn:"Kadhai Paneer (Full)",nHi:"कढ़ाई पनीर (फुल)",p:300},{nEn:"Paneer Bhurji (Half)",nHi:"पनीर भुर्जी (हाफ)",p:180},{nEn:"Paneer Bhurji (Full)",nHi:"पनीर भुर्जी (फुल)",p:300},{nEn:"Paneer Lababdar (Half)",nHi:"पनीर लबाबदार (हाफ)",p:180},{nEn:"Paneer Lababdar (Full)",nHi:"पनीर लबाबदार (फुल)",p:300},{nEn:"Paneer Pasanda (Half)",nHi:"पनीर पसंदा (हाफ)",p:180},{nEn:"Paneer Pasanda (Full)",nHi:"पनीर पसंदा (फुल)",p:300},{nEn:"Paneer Tikka Butter Masala (Half)",nHi:"पनीर टिक्का बटर मसाला (हाफ)",p:180},{nEn:"Paneer Tikka Butter Masala (Full)",nHi:"पनीर टिक्का बटर मसाला (फुल)",p:300},{nEn:"Shahi Paneer (Half)",nHi:"शाही पनीर (हाफ)",p:180},{nEn:"Shahi Paneer (Full)",nHi:"शाही पनीर (फुल)",p:300},{nEn:"Palak Paneer (Half)",nHi:"पालक पनीर (हाफ)",p:180},{nEn:"Palak Paneer (Full)",nHi:"पालक पनीर (फुल)",p:290},{nEn:"Paneer Do Pyaza (Half)",nHi:"पनीर दो प्याजा (हाफ)",p:180},{nEn:"Paneer Do Pyaza (Full)",nHi:"पनीर दो प्याजा (फुल)",p:290}]},
-  {catEn:"Main Course (Kofta)", catHi:"मेन कोर्स (कोफ्ता)", items:[{nEn:"Punjabi Veg Kofta (Half)",nHi:"पंजाबी वेज कोफ्ता (हाफ)",p:170},{nEn:"Punjabi Veg Kofta (Full)",nHi:"पंजाबी वेज कोफ्ता (फुल)",p:250},{nEn:"Palak Kofta (Half)",nHi:"पालक कोफ्ता (हाफ)",p:170},{nEn:"Palak Kofta (Full)",nHi:"पालक कोफ्ता (फुल)",p:250},{nEn:"Delight Kofta (Half)",nHi:"डिलाइट कोफ्ता (हाफ)",p:170},{nEn:"Delight Kofta (Full)",nHi:"डिलाइट कोफ्ता (फुल)",p:250},{nEn:"Paneer Makhni Kofta (Half)",nHi:"पनीर मखनी कोफ्ता (हाफ)",p:180},{nEn:"Paneer Makhni Kofta (Full)",nHi:"पनीर मखनी कोफ्ता (फुल)",p:260},{nEn:"Malai Kofta (Half)",nHi:"मलाई कोफ्ता (हाफ)",p:180},{nEn:"Malai Kofta (Full)",nHi:"मलाई कोफ्ता (फुल)",p:260}]},
-  {catEn:"Main Course (Mushroom)", catHi:"मेन कोर्स (मशरूम)", items:[{nEn:"Mushroom Masala (Half)",nHi:"मशरूम मसाला (हाफ)",p:170},{nEn:"Mushroom Masala (Full)",nHi:"मशरूम मसाला (फुल)",p:250},{nEn:"Matar Mushroom (Half)",nHi:"मटर मशरूम (हाफ)",p:170},{nEn:"Matar Mushroom (Full)",nHi:"मटर मशरूम (फुल)",p:250},{nEn:"Mushroom Do Pyaza (Half)",nHi:"मशरूम दो प्याजा (हाफ)",p:180},{nEn:"Mushroom Do Pyaza (Full)",nHi:"मशरूम दो प्याजा (फुल)",p:300}]},
-  {catEn:"Main Course (Chaap)", catHi:"मेन कोर्स (चाप)", items:[{nEn:"Malai Chaap",nHi:"मलाई चाप",p:250},{nEn:"Afghani Chaap",nHi:"अफगानी चाप",p:250},{nEn:"Lemon Chaap",nHi:"लेमन चाप",p:250},{nEn:"Tandoori Chaap",nHi:"तंदूरी चाप",p:250}]},
-  {catEn:"Dry Vegetables", catHi:"ड्राई वेजिटेबल्स एंड स्पेशल करी", items:[{nEn:"Dum Aloo Kashmiri (Half)",nHi:"दम आलू कश्मीरी (हाफ)",p:100},{nEn:"Dum Aloo Kashmiri (Full)",nHi:"दम आलू कश्मीरी (फुल)",p:180},{nEn:"Aloo Jeera (Half)",nHi:"आलू जीरा (हाफ)",p:100},{nEn:"Aloo Jeera (Full)",nHi:"आलू जीरा (फुल)",p:180},{nEn:"Gobhi Masala (Half)",nHi:"गोभी मसाला (हाफ)",p:120},{nEn:"Gobhi Masala (Full)",nHi:"गोभी मसाला (फुल)",p:200},{nEn:"Aloo Gobhi Masala (Half)",nHi:"आलू गोभी मसाला (हाफ)",p:110},{nEn:"Aloo Gobhi Masala (Full)",nHi:"आलू गोभी मसाला (फुल)",p:200},{nEn:"Diwani Handi (Half)",nHi:"दीवानी हांडी (हाफ)",p:140},{nEn:"Diwani Handi (Full)",nHi:"दीवानी हांडी (फुल)",p:220},{nEn:"Methi Malai Matar (Half)",nHi:"मेथी मलाई मटर (हाफ)",p:160},{nEn:"Methi Malai Matar (Full)",nHi:"मेथी मलाई मटर (फुल)",p:240},{nEn:"Chaap Tikka Butter Masala",nHi:"चाप टिक्का बटर मसाला",p:250},{nEn:"Mix Veg",nHi:"मिक्स वेज",p:250},{nEn:"Navrattan Korma (Half)",nHi:"नवरत्न कोरमा (हाफ)",p:200},{nEn:"Navrattan Korma (Full)",nHi:"नवरत्न कोरमा (फुल)",p:280}]},
-  {catEn:"Rice Ki Bahar", catHi:"राइस की बहार", items:[{nEn:"Steamed Rice",nHi:"स्टीम्ड राइस",p:180},{nEn:"Jeera Rice",nHi:"जीरा राइस",p:190},{nEn:"Matar Pulao",nHi:"मटर पुलाव",p:200},{nEn:"Veg Subz Pulao",nHi:"वेज सब्ज पुलाव",p:220},{nEn:"Kashmiri Pulao",nHi:"कश्मीरी पुलाव",p:250}]},
-  {catEn:"Breads", catHi:"ब्रेड्स", items:[{nEn:"Roti",nHi:"रोटी",p:20},{nEn:"Butter Roti",nHi:"बटर रोटी",p:30},{nEn:"Butter Roti with Onion",nHi:"बटर रोटी विद अनियन",p:30},{nEn:"Butter Roti with Onion (Special)",nHi:"बटर रोटी विद अनियन",p:35},{nEn:"Missi Roti",nHi:"मिस्सी रोटी",p:45},{nEn:"Missi Roti with Onion",nHi:"मिस्सी रोटी विद अनियन",p:50},{nEn:"Butter Naan",nHi:"बटर नान",p:50},{nEn:"Garlic Onion Roti",nHi:"गार्लिक अनियन रोटी",p:50},{nEn:"Pyaz Parantha",nHi:"प्याज परांठा",p:50},{nEn:"Lachha Parantha",nHi:"लच्छा परांठा",p:50},{nEn:"Plain Naan",nHi:"प्लेन नान",p:55},{nEn:"Pudina Parantha",nHi:"पुदीना परांठा",p:65},{nEn:"Chilli Parantha (Red/Green)",nHi:"चिल्ली परांठा (रेड/ग्रीन)",p:65},{nEn:"Kashmiri Naan",nHi:"कश्मीरी नान",p:70},{nEn:"Garlic Naan",nHi:"गार्लिक नान",p:90},{nEn:"Aloo Pyaz Prantha",nHi:"आलू प्याज परांठा",p:95},{nEn:"Stuffed Parantha & Kulcha",nHi:"स्टफ्ड परांठा एंड कुल्चा",p:100},{nEn:"Chur Chur Naan",nHi:"चूर चूर नान",p:100},{nEn:"Paneer Prantha",nHi:"पनीर परांठा",p:115},{nEn:"Cheese Naan",nHi:"चीज नान",p:120},{nEn:"Cheese Garlic Naan",nHi:"चीज गार्लिक नान",p:120},{nEn:"Stuff Naan",nHi:"स्टफ नान",p:120}]},
-  {catEn:"Raita", catHi:"रायता", items:[{nEn:"Plain Curd",nHi:"प्लेन कर्ड",p:100},{nEn:"Mint Raita",nHi:"मिंट रायता",p:150},{nEn:"Mix Raita",nHi:"मिक्स रायता",p:150},{nEn:"Pahadi Tadka Raita",nHi:"पहाड़ी तड़का रायता",p:150},{nEn:"Pineapple Raita",nHi:"पाइनएप्पल रायता",p:150},{nEn:"Tadka Raita",nHi:"तड़का रायता",p:150},{nEn:"Boondi Raita",nHi:"बूंदी रायता",p:150}]},
-  {catEn:"Dessert", catHi:"डेजर्ट", items:[{nEn:"Gulab Jamun (Desi Ghee)",nHi:"गुलाब जामुन (देसी घी)",p:60},{nEn:"Ice Cream",nHi:"आइस क्रीम",p:75},{nEn:"Kesar Kheer",nHi:"केसर खीर",p:150},{nEn:"Winter Special",nHi:"विंटर स्पेशल",p:150},{nEn:"Moong Halwa / Gajrela",nHi:"मूंग हलवा / गजरेला",p:150}]},
-  {catEn:"Drinks", catHi:"ड्रिंक्स", items:[{nEn:"Tea",nHi:"चाय",p:40},{nEn:"Hot Coffee",nHi:"हॉट कॉफी",p:60},{nEn:"Salted Lassi",nHi:"साल्टेड लस्सी",p:70},{nEn:"Green Apple",nHi:"ग्रीन एप्पल",p:90},{nEn:"Blue Ocean",nHi:"ब्लू ओशन",p:90},{nEn:"Virgin Mojito",nHi:"वर्जिन मोजिटो",p:90},{nEn:"Water Melon",nHi:"वाटर मेलन",p:90},{nEn:"Cold Coffee",nHi:"कोल्ड कॉफी",p:100},{nEn:"Chocolate Shake",nHi:"चॉकलेट शेक",p:150},{nEn:"Choco Oreo Shake",nHi:"चोको ओरियो शेक",p:150},{nEn:"Kit Kat Shake",nHi:"किट कैट शेक",p:150},{nEn:"With Ice Cream",nHi:"विद आइस क्रीम",p:150},{nEn:"Butterscotch Shake",nHi:"बटरस्कॉच शेक",p:180},{nEn:"Hazelnut Dryfruit Shake",nHi:"हेज़लनट ड्रायफ्रूट शेक",p:200}]}
+  {catEn:"Soup",catHi:"सूप",items:[{nEn:"Hot & Sour Soup",nHi:"हॉट एंड सॉर सूप",p:120},{nEn:"Sweet Corn Soup",nHi:"स्वीट कॉर्न सूप",p:120},{nEn:"Tomato Soup",nHi:"टोमैटो सूप",p:120},{nEn:"Veg Clear Soup",nHi:"वेज क्लियर सूप",p:120}]},
+  {catEn:"Starters",catHi:"स्टार्टर्स",items:[{nEn:"Roasted Papad",nHi:"रोस्टेड पापड़",p:65},{nEn:"Fried Papad",nHi:"फ्राइड पापड़",p:75},{nEn:"Plain Nachos",nHi:"प्लेन नाचोज",p:135},{nEn:"French Fries",nHi:"फ्रेंच फ्राइज",p:155},{nEn:"Masala Papad",nHi:"मसाला पापड़",p:155},{nEn:"Peri Peri Fries",nHi:"पेरी पेरी फ्राइज",p:175},{nEn:"Mix Pakora",nHi:"मिक्स पकोड़ा",p:175},{nEn:"Fried Potato Chaat",nHi:"फ्राइड पोटैटो चाट",p:175},{nEn:"Cone Papad Chaat",nHi:"कोन पापड़ चाट",p:195},{nEn:"Veg Cutlet (8pcs)",nHi:"वेज कटलेट (8 पीस)",p:200},{nEn:"Haryali Kabab (8pcs)",nHi:"हरियाली कबाब (8 पीस)",p:200},{nEn:"Chana Chaat",nHi:"चना चाट",p:205},{nEn:"Fried Peanut Masala",nHi:"फ्राइड पीनट मसाला",p:205},{nEn:"Fried Peanut with Cheese",nHi:"फ्राइड पीनट विद चीज",p:225},{nEn:"Paneer Pakora",nHi:"पनीर पकोड़ा",p:225},{nEn:"Loaded Cheesy Fries",nHi:"लोडेड चीजी फ्राइज",p:225},{nEn:"Nachos with Cheese",nHi:"नाचोज विद चीज",p:235},{nEn:"Dahi Se Sholey",nHi:"दही से शोले",p:250},{nEn:"Dahi Ke Kabab (8pcs)",nHi:"दही के कबाब (8 पीस)",p:270},{nEn:"Stuff Cheese Corn Tikki",nHi:"स्टफ चीज कॉर्न टिक्की",p:280},{nEn:"Kurkuri Corns with Cheese",nHi:"कुरकुरी कॉर्न्स विद चीज",p:295},{nEn:"Paneer Cutlet",nHi:"पनीर कटलेट",p:335}]},
+  {catEn:"Sandwich",catHi:"सैंडविच",items:[{nEn:"Veg Sandwich",nHi:"वेज सैंडविच",p:80},{nEn:"Tomato Sandwich",nHi:"टोमैटो सैंडविच",p:80},{nEn:"Cheese Sandwich",nHi:"चीज सैंडविच",p:100},{nEn:"Grilled Sandwich",nHi:"ग्रिल्ड सैंडविच",p:100},{nEn:"Club Sandwich",nHi:"क्लब सैंडविच",p:120},{nEn:"Paneer Sandwich",nHi:"पनीर सैंडविच",p:120}]},
+  {catEn:"Burgers",catHi:"बर्गर",items:[{nEn:"Aloo Classic Burger",nHi:"आलू क्लासिक बर्गर",p:80},{nEn:"Aloo Cheese Burger",nHi:"आलू चीज बर्गर",p:100},{nEn:"Paneer Tikka Burger",nHi:"पनीर टिक्का बर्गर",p:120},{nEn:"Crispy Paneer Burger",nHi:"क्रिस्पी पनीर बर्गर",p:130},{nEn:"Spl. Better Burger",nHi:"स्पेशल बेटर बर्गर",p:150},{nEn:"Burger + Fries",nHi:"बर्गर + फ्राइज",p:180}]},
+  {catEn:"Pizza",catHi:"पिज्जा",items:[{nEn:"Cheese Tomato Pizza",nHi:"चीज टोमैटो पिज्जा",p:240},{nEn:"Mushroom Pizza",nHi:"मशरूम पिज्जा",p:260},{nEn:"Margherita Pizza",nHi:"मार्घेरिटा पिज्जा",p:280},{nEn:"Sweet Corn Pizza",nHi:"स्वीट कॉर्न पिज्जा",p:280},{nEn:"Paneer Tikka Pizza",nHi:"पनीर टिक्का पिज्जा",p:300},{nEn:"Farmer's Choice Pizza",nHi:"फार्मर चॉइस पिज्जा",p:300}]},
+  {catEn:"Tandoori Starters",catHi:"तंदूरी स्टार्टर्स",items:[{nEn:"Veg Sheekh Kabab",nHi:"वेज सीख कबाब",p:200},{nEn:"Malai Chaap",nHi:"मलाई चाप",p:220},{nEn:"Mushroom Tikka",nHi:"मशरूम टिक्का",p:240},{nEn:"Paneer Tikka",nHi:"पनीर टिक्का",p:240},{nEn:"Paneer Haryali Tikka",nHi:"पनीर हरियाली टिक्का",p:240},{nEn:"Afghani Tikka",nHi:"अफगानी टिक्का",p:250},{nEn:"Garlic Paneer Tikka",nHi:"गार्लिक पनीर टिक्का",p:250},{nEn:"Tandoori Soya Chaap",nHi:"तंदूरी सोया चाप",p:250},{nEn:"Achaari Chaap",nHi:"अचारी चाप",p:250},{nEn:"Paneer Achaari Tikka",nHi:"पनीर अचारी टिक्का",p:260},{nEn:"Malai Paneer Tikka",nHi:"मलाई पनीर टिक्का",p:260},{nEn:"Tandoori Platter",nHi:"तंदूरी प्लेटर",p:350}]},
+  {catEn:"Salads",catHi:"सलाद",items:[{nEn:"Green Salad",nHi:"ग्रीन सलाद",p:80},{nEn:"Kachumber Salad",nHi:"कचूम्बर सलाद",p:120},{nEn:"Greek Salad",nHi:"ग्रीक सलाद",p:180},{nEn:"Cucumber Mint Salad",nHi:"कुकुंबर मिंट सलाद",p:185},{nEn:"Garlic Corn Salad",nHi:"गार्लिक कॉर्न सलाद",p:195},{nEn:"High Protein Salad",nHi:"हाई प्रोटीन सलाद",p:295}]},
+  {catEn:"Chinese",catHi:"चाइनीज",items:[{nEn:"Chilli Potato",nHi:"चिल्ली पोटैटो",p:200},{nEn:"Honey Chilli Potato",nHi:"हनी चिल्ली पोटैटो",p:225},{nEn:"Veg Spring Rolls",nHi:"वेज स्प्रिंग रोल्स",p:225},{nEn:"Veg Manchurian Dry",nHi:"वेज मंचूरियन ड्राय",p:240},{nEn:"Veg Manchurian Gravy",nHi:"वेज मंचूरियन ग्रेवी",p:265},{nEn:"Chilli Mushroom Dry",nHi:"चिल्ली मशरूम ड्राय",p:270},{nEn:"Chilli Baby Corn",nHi:"चिल्ली बेबी कॉर्न",p:280},{nEn:"Chilli Paneer Dry",nHi:"चिल्ली पनीर ड्राय",p:320},{nEn:"Chilli Paneer Gravy",nHi:"चिल्ली पनीर ग्रेवी",p:355},{nEn:"Chinese Sizzler",nHi:"चाइनीज सिज़लर",p:499}]},
+  {catEn:"Noodles & Rice",catHi:"नूडल्स एंड राइस",items:[{nEn:"Veg Noodles",nHi:"वेज नूडल्स",p:195},{nEn:"Hakka Noodles",nHi:"हक्का नूडल्स",p:235},{nEn:"Garlic Noodles",nHi:"गार्लिक नूडल्स",p:205},{nEn:"Chilli Garlic Noodles",nHi:"चिल्ली गार्लिक नूडल्स",p:205},{nEn:"Singapore Noodles",nHi:"सिंगापुर नूडल्स",p:235},{nEn:"Veg Fried Rice",nHi:"वेज फ्राइड राइस",p:215},{nEn:"Schezwan Fried Rice",nHi:"शेजवान फ्राइड राइस",p:215},{nEn:"Mushroom Fried Rice",nHi:"मशरूम फ्राइड राइस",p:215},{nEn:"Chilli Garlic Fried Rice",nHi:"चिल्ली गार्लिक फ्राइड राइस",p:215}]},
+  {catEn:"Pasta",catHi:"पास्ता",items:[{nEn:"White Sauce Pasta",nHi:"व्हाइट सॉस पास्ता",p:250},{nEn:"Red Sauce Pasta",nHi:"रेड सॉस पास्ता",p:200},{nEn:"Mix Sauce Pasta",nHi:"मिक्स सॉस पास्ता",p:210}]},
+  {catEn:"Main Course (Dal)",catHi:"मेन कोर्स (दाल)",items:[{nEn:"Dal Tadka (Half)",nHi:"दाल तड़का (हाफ)",p:130},{nEn:"Dal Tadka (Full)",nHi:"दाल तड़का (फुल)",p:200},{nEn:"Rajma Rasile (Half)",nHi:"राजमा रसीले (हाफ)",p:120},{nEn:"Rajma Rasile (Full)",nHi:"राजमा रसीले (फुल)",p:200},{nEn:"Dal Handi (Half)",nHi:"दाल हांडी (हाफ)",p:140},{nEn:"Dal Handi (Full)",nHi:"दाल हांडी (फुल)",p:230},{nEn:"Chana Masala (Half)",nHi:"चना मसाला (हाफ)",p:160},{nEn:"Chana Masala (Full)",nHi:"चना मसाला (फुल)",p:240},{nEn:"Chana Pindi (Half)",nHi:"चना पिंडी (हाफ)",p:170},{nEn:"Chana Pindi (Full)",nHi:"चना पिंडी (फुल)",p:250},{nEn:"Dal Makhani (Half)",nHi:"दाल मखनी (हाफ)",p:150},{nEn:"Dal Makhani (Full)",nHi:"दाल मखनी (फुल)",p:250}]},
+  {catEn:"Main Course (Paneer)",catHi:"मेन कोर्स (पनीर)",items:[{nEn:"Paneer Makhani (Half)",nHi:"पनीर मखनी (हाफ)",p:170},{nEn:"Paneer Makhani (Full)",nHi:"पनीर मखनी (फुल)",p:250},{nEn:"Paneer Malai Methi (Half)",nHi:"पनीर मलाई मेथी (हाफ)",p:180},{nEn:"Paneer Malai Methi (Full)",nHi:"पनीर मलाई मेथी (फुल)",p:300},{nEn:"Paneer Kali Mirch (Half)",nHi:"पनीर काली मिर्च (हाफ)",p:180},{nEn:"Paneer Kali Mirch (Full)",nHi:"पनीर काली मिर्च (फुल)",p:300},{nEn:"Paneer Butter Masala (Half)",nHi:"पनीर बटर मसाला (हाफ)",p:190},{nEn:"Paneer Butter Masala (Full)",nHi:"पनीर बटर मसाला (फुल)",p:300},{nEn:"Kadhai Paneer (Half)",nHi:"कढ़ाई पनीर (हाफ)",p:180},{nEn:"Kadhai Paneer (Full)",nHi:"कढ़ाई पनीर (फुल)",p:300},{nEn:"Paneer Bhurji (Half)",nHi:"पनीर भुर्जी (हाफ)",p:180},{nEn:"Paneer Bhurji (Full)",nHi:"पनीर भुर्जी (फुल)",p:300},{nEn:"Paneer Lababdar (Half)",nHi:"पनीर लबाबदार (हाफ)",p:180},{nEn:"Paneer Lababdar (Full)",nHi:"पनीर लबाबदार (फुल)",p:300},{nEn:"Paneer Pasanda (Half)",nHi:"पनीर पसंदा (हाफ)",p:180},{nEn:"Paneer Pasanda (Full)",nHi:"पनीर पसंदा (फुल)",p:300},{nEn:"Paneer Tikka Butter Masala (Half)",nHi:"पनीर टिक्का बटर मसाला (हाफ)",p:180},{nEn:"Paneer Tikka Butter Masala (Full)",nHi:"पनीर टिक्का बटर मसाला (फुल)",p:300},{nEn:"Shahi Paneer (Half)",nHi:"शाही पनीर (हाफ)",p:180},{nEn:"Shahi Paneer (Full)",nHi:"शाही पनीर (फुल)",p:300},{nEn:"Palak Paneer (Half)",nHi:"पालक पनीर (हाफ)",p:180},{nEn:"Palak Paneer (Full)",nHi:"पालक पनीर (फुल)",p:290},{nEn:"Paneer Do Pyaza (Half)",nHi:"पनीर दो प्याजा (हाफ)",p:180},{nEn:"Paneer Do Pyaza (Full)",nHi:"पनीर दो प्याजा (फुल)",p:290}]},
+  {catEn:"Main Course (Kofta)",catHi:"मेन कोर्स (कोफ्ता)",items:[{nEn:"Punjabi Veg Kofta (Half)",nHi:"पंजाबी वेज कोफ्ता (हाफ)",p:170},{nEn:"Punjabi Veg Kofta (Full)",nHi:"पंजाबी वेज कोफ्ता (फुल)",p:250},{nEn:"Palak Kofta (Half)",nHi:"पालक कोफ्ता (हाफ)",p:170},{nEn:"Palak Kofta (Full)",nHi:"पालक कोफ्ता (फुल)",p:250},{nEn:"Delight Kofta (Half)",nHi:"डिलाइट कोफ्ता (हाफ)",p:170},{nEn:"Delight Kofta (Full)",nHi:"डिलाइट कोफ्ता (फुल)",p:250},{nEn:"Paneer Makhni Kofta (Half)",nHi:"पनीर मखनी कोफ्ता (हाफ)",p:180},{nEn:"Paneer Makhni Kofta (Full)",nHi:"पनीर मखनी कोफ्ता (फुल)",p:260},{nEn:"Malai Kofta (Half)",nHi:"मलाई कोफ्ता (हाफ)",p:180},{nEn:"Malai Kofta (Full)",nHi:"मलाई कोफ्ता (फुल)",p:260}]},
+  {catEn:"Main Course (Mushroom)",catHi:"मेन कोर्स (मशरूम)",items:[{nEn:"Mushroom Masala (Half)",nHi:"मशरूम मसाला (हाफ)",p:170},{nEn:"Mushroom Masala (Full)",nHi:"मशरूम मसाला (फुल)",p:250},{nEn:"Matar Mushroom (Half)",nHi:"मटर मशरूम (हाफ)",p:170},{nEn:"Matar Mushroom (Full)",nHi:"मटर मशरूम (फुल)",p:250},{nEn:"Mushroom Do Pyaza (Half)",nHi:"मशरूम दो प्याजा (हाफ)",p:180},{nEn:"Mushroom Do Pyaza (Full)",nHi:"मशरूम दो प्याजा (फुल)",p:300}]},
+  {catEn:"Main Course (Chaap)",catHi:"मेन कोर्स (चाप)",items:[{nEn:"Malai Chaap",nHi:"मलाई चाप",p:250},{nEn:"Afghani Chaap",nHi:"अफगानी चाप",p:250},{nEn:"Lemon Chaap",nHi:"लेमन चाप",p:250},{nEn:"Tandoori Chaap",nHi:"तंदूरी चाप",p:250}]},
+  {catEn:"Dry Vegetables",catHi:"ड्राई वेजिटेबल्स",items:[{nEn:"Dum Aloo Kashmiri (Half)",nHi:"दम आलू कश्मीरी (हाफ)",p:100},{nEn:"Dum Aloo Kashmiri (Full)",nHi:"दम आलू कश्मीरी (फुल)",p:180},{nEn:"Aloo Jeera (Half)",nHi:"आलू जीरा (हाफ)",p:100},{nEn:"Aloo Jeera (Full)",nHi:"आलू जीरा (फुल)",p:180},{nEn:"Gobhi Masala (Half)",nHi:"गोभी मसाला (हाफ)",p:120},{nEn:"Gobhi Masala (Full)",nHi:"गोभी मसाला (फुल)",p:200},{nEn:"Aloo Gobhi Masala (Half)",nHi:"आलू गोभी मसाला (हाफ)",p:110},{nEn:"Aloo Gobhi Masala (Full)",nHi:"आलू गोभी मसाला (फुल)",p:200},{nEn:"Diwani Handi (Half)",nHi:"दीवानी हांडी (हाफ)",p:140},{nEn:"Diwani Handi (Full)",nHi:"दीवानी हांडी (फुल)",p:220},{nEn:"Methi Malai Matar (Half)",nHi:"मेथी मलाई मटर (हाफ)",p:160},{nEn:"Methi Malai Matar (Full)",nHi:"मेथी मलाई मटर (फुल)",p:240},{nEn:"Chaap Tikka Butter Masala",nHi:"चाप टिक्का बटर मसाला",p:250},{nEn:"Mix Veg",nHi:"मिक्स वेज",p:250},{nEn:"Navrattan Korma (Half)",nHi:"नवरत्न कोरमा (हाफ)",p:200},{nEn:"Navrattan Korma (Full)",nHi:"नवरत्न कोरमा (फुल)",p:280}]},
+  {catEn:"Rice Ki Bahar",catHi:"राइस की बहार",items:[{nEn:"Steamed Rice",nHi:"स्टीम्ड राइस",p:180},{nEn:"Jeera Rice",nHi:"जीरा राइस",p:190},{nEn:"Matar Pulao",nHi:"मटर पुलाव",p:200},{nEn:"Veg Subz Pulao",nHi:"वेज सब्ज पुलाव",p:220},{nEn:"Kashmiri Pulao",nHi:"कश्मीरी पुलाव",p:250}]},
+  {catEn:"Breads",catHi:"ब्रेड्स",items:[{nEn:"Roti",nHi:"रोटी",p:20},{nEn:"Butter Roti",nHi:"बटर रोटी",p:30},{nEn:"Butter Roti with Onion",nHi:"बटर रोटी विद अनियन",p:30},{nEn:"Missi Roti",nHi:"मिस्सी रोटी",p:45},{nEn:"Missi Roti with Onion",nHi:"मिस्सी रोटी विद अनियन",p:50},{nEn:"Butter Naan",nHi:"बटर नान",p:50},{nEn:"Garlic Onion Roti",nHi:"गार्लिक अनियन रोटी",p:50},{nEn:"Pyaz Parantha",nHi:"प्याज परांठा",p:50},{nEn:"Lachha Parantha",nHi:"लच्छा परांठा",p:50},{nEn:"Plain Naan",nHi:"प्लेन नान",p:55},{nEn:"Pudina Parantha",nHi:"पुदीना परांठा",p:65},{nEn:"Chilli Parantha (Red/Green)",nHi:"चिल्ली परांठा (रेड/ग्रीन)",p:65},{nEn:"Kashmiri Naan",nHi:"कश्मीरी नान",p:70},{nEn:"Garlic Naan",nHi:"गार्लिक नान",p:90},{nEn:"Aloo Pyaz Parantha",nHi:"आलू प्याज परांठा",p:95},{nEn:"Stuffed Parantha & Kulcha",nHi:"स्टफ्ड परांठा एंड कुल्चा",p:100},{nEn:"Chur Chur Naan",nHi:"चूर चूर नान",p:100},{nEn:"Paneer Parantha",nHi:"पनीर परांठा",p:115},{nEn:"Cheese Naan",nHi:"चीज नान",p:120},{nEn:"Cheese Garlic Naan",nHi:"चीज गार्लिक नान",p:120},{nEn:"Stuff Naan",nHi:"स्टफ नान",p:120}]},
+  {catEn:"Raita",catHi:"रायता",items:[{nEn:"Plain Curd",nHi:"प्लेन कर्ड",p:100},{nEn:"Mint Raita",nHi:"मिंट रायता",p:150},{nEn:"Mix Raita",nHi:"मिक्स रायता",p:150},{nEn:"Pahadi Tadka Raita",nHi:"पहाड़ी तड़का रायता",p:150},{nEn:"Pineapple Raita",nHi:"पाइनएप्पल रायता",p:150},{nEn:"Tadka Raita",nHi:"तड़का रायता",p:150},{nEn:"Boondi Raita",nHi:"बूंदी रायता",p:150}]},
+  {catEn:"Dessert",catHi:"डेजर्ट",items:[{nEn:"Gulab Jamun (Desi Ghee)",nHi:"गुलाब जामुन (देसी घी)",p:60},{nEn:"Ice Cream",nHi:"आइस क्रीम",p:75},{nEn:"Kesar Kheer",nHi:"केसर खीर",p:150},{nEn:"Winter Special",nHi:"विंटर स्पेशल",p:150},{nEn:"Moong Halwa / Gajrela",nHi:"मूंग हलवा / गजरेला",p:150}]},
+  {catEn:"Drinks",catHi:"ड्रिंक्स",items:[{nEn:"Tea",nHi:"चाय",p:40},{nEn:"Hot Coffee",nHi:"हॉट कॉफी",p:60},{nEn:"Salted Lassi",nHi:"साल्टेड लस्सी",p:70},{nEn:"Green Apple",nHi:"ग्रीन एप्पल",p:90},{nEn:"Blue Ocean",nHi:"ब्लू ओशन",p:90},{nEn:"Virgin Mojito",nHi:"वर्जिन मोजिटो",p:90},{nEn:"Water Melon",nHi:"वाटर मेलन",p:90},{nEn:"Cold Coffee",nHi:"कोल्ड कॉफी",p:100},{nEn:"Chocolate Shake",nHi:"चॉकलेट शेक",p:150},{nEn:"Choco Oreo Shake",nHi:"चोको ओरियो शेक",p:150},{nEn:"Kit Kat Shake",nHi:"किट कैट शेक",p:150},{nEn:"With Ice Cream",nHi:"विद आइस क्रीम",p:150},{nEn:"Butterscotch Shake",nHi:"बटरस्कॉच शेक",p:180},{nEn:"Hazelnut Dryfruit Shake",nHi:"हेज़लनट ड्रायफ्रूट शेक",p:200}]}
 ];
 
 const DESCS = {
-  "Soup": {en:"Freshly prepared, warming & soothing", hi:"ताज़ा तैयार किया गया"},
-  "Starters": {en:"Perfect companions for your evening", hi:"आपके शाम के लिए बेहतरीन"},
-  "Sandwich": {en:"Freshly made to order", hi:"ताज़ा और स्वादिष्ट"},
-  "Burgers": {en:"Stacked with flavour", hi:"स्वाद से भरपूर"},
-  "Pizza": {en:"Stone-baked crust, loaded toppings", hi:"ओवन बेक्ड और क्रिस्पी"},
-  "Tandoori Starters": {en:"From our live tandoor", hi:"सीधे हमारे तंदूर से"},
-  "Salads": {en:"Crisp, fresh & wholesome", hi:"ताज़ा और सेहतमंद"},
-  "Chinese": {en:"Wok-tossed with bold sauces", hi:"मसालेदार और स्वादिष्ट"},
-  "Noodles & Rice": {en:"Indo-Chinese comfort food", hi:"इंडो-चाइनीज बेहतरीन स्वाद"},
-  "Pasta": {en:"Tossed in rich Italian sauces", hi:"इटैलियन सॉस में तैयार"},
-  "Main Course (Dal)": {en:"Slow-cooked lentil perfection", hi:"धीमी आंच पर पकी हुई दाल"},
-  "Main Course (Paneer)": {en:"Cottage cheese in aromatic gravies", hi:"स्वादिष्ट ग्रेवी में पनीर"},
-  "Main Course (Kofta)": {en:"Delicate dumplings in rich curries", hi:"स्पेशल ग्रेवी में सॉफ्ट कोफ्ते"},
-  "Main Course (Mushroom)": {en:"Earthy & flavourful", hi:"मशरूम का शानदार स्वाद"},
-  "Main Course (Chaap)": {en:"Marinated & grilled soya chaap", hi:"तंदूरी मसालों में चाप"},
-  "Dry Vegetables": {en:"Seasonal veggies, classic masalas", hi:"सीजनल सब्जियां और देसी मसाले"},
-  "Rice Ki Bahar": {en:"Fragrant & satisfying", hi:"खुशबूदार चावल और पुलाव"},
-  "Breads": {en:"From the tandoor & tawa", hi:"तंदूर और तवे से गरमा-गरम"},
-  "Raita": {en:"Cool yoghurt accompaniments", hi:"ठंडा और स्वादिष्ट रायता"},
-  "Dessert": {en:"Sweet endings", hi:"कुछ मीठा हो जाए"},
-  "Drinks": {en:"Refreshing beverages", hi:"रिफ्रेशिंग ड्रिंक्स"}
+  "Soup":                  {en:"Freshly prepared, warming & soothing",       hi:"ताज़ा तैयार किया गया"},
+  "Starters":              {en:"Perfect companions for your evening",         hi:"आपके शाम के लिए बेहतरीन"},
+  "Sandwich":              {en:"Freshly made to order",                       hi:"ताज़ा और स्वादिष्ट"},
+  "Burgers":               {en:"Stacked with flavour",                        hi:"स्वाद से भरपूर"},
+  "Pizza":                 {en:"Stone-baked crust, loaded toppings",          hi:"ओवन बेक्ड और क्रिस्पी"},
+  "Tandoori Starters":     {en:"From our live tandoor",                       hi:"सीधे हमारे तंदूर से"},
+  "Salads":                {en:"Crisp, fresh & wholesome",                    hi:"ताज़ा और सेहतमंद"},
+  "Chinese":               {en:"Wok-tossed with bold sauces",                 hi:"मसालेदार और स्वादिष्ट"},
+  "Noodles & Rice":        {en:"Indo-Chinese comfort food",                   hi:"इंडो-चाइनीज बेहतरीन स्वाद"},
+  "Pasta":                 {en:"Tossed in rich Italian sauces",               hi:"इटैलियन सॉस में तैयार"},
+  "Main Course (Dal)":     {en:"Slow-cooked lentil perfection",               hi:"धीमी आंच पर पकी हुई दाल"},
+  "Main Course (Paneer)":  {en:"Cottage cheese in aromatic gravies",          hi:"स्वादिष्ट ग्रेवी में पनीर"},
+  "Main Course (Kofta)":   {en:"Delicate dumplings in rich curries",          hi:"स्पेशल ग्रेवी में सॉफ्ट कोफ्ते"},
+  "Main Course (Mushroom)":{en:"Earthy & flavourful",                         hi:"मशरूम का शानदार स्वाद"},
+  "Main Course (Chaap)":   {en:"Marinated & grilled soya chaap",              hi:"तंदूरी मसालों में चाप"},
+  "Dry Vegetables":        {en:"Seasonal veggies, classic masalas",           hi:"सीजनल सब्जियां और देसी मसाले"},
+  "Rice Ki Bahar":         {en:"Fragrant & satisfying",                       hi:"खुशबूदार चावल और पुलाव"},
+  "Breads":                {en:"From the tandoor & tawa",                     hi:"तंदूर और तवे से गरमा-गरम"},
+  "Raita":                 {en:"Cool yoghurt accompaniments",                 hi:"ठंडा और स्वादिष्ट रायता"},
+  "Dessert":               {en:"Sweet endings",                               hi:"कुछ मीठा हो जाए"},
+  "Drinks":                {en:"Refreshing beverages",                        hi:"रिफ्रेशिंग ड्रिंक्स"}
 };
 
+/* ============================================
+   KEYBOARD HEIGHT DETECTION (Android/iOS)
+   ============================================ */
+let keyboardHeight = 0;
+
+function updateKeyboardHeight() {
+  // Modern API: visualViewport
+  if (window.visualViewport) {
+    const newHeight = Math.max(0, window.innerHeight - window.visualViewport.height - window.visualViewport.offsetTop);
+    if (Math.abs(newHeight - keyboardHeight) > 20) {
+      keyboardHeight = newHeight;
+      document.documentElement.style.setProperty('--keyboard-height', keyboardHeight + 'px');
+      onKeyboardChange(keyboardHeight > 100);
+    }
+  }
+}
+
+function onKeyboardChange(isOpen) {
+  const cartSheet = document.getElementById('cart-sheet');
+  const custBox = document.getElementById('cust-box');
+
+  if (isOpen) {
+    cartSheet.classList.add('keyboard-up');
+    custBox.classList.add('keyboard-up');
+    // Scroll focused input into view
+    setTimeout(() => {
+      const focused = document.activeElement;
+      if (focused && (focused.tagName === 'INPUT' || focused.tagName === 'TEXTAREA')) {
+        focused.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 150);
+  } else {
+    cartSheet.classList.remove('keyboard-up');
+    custBox.classList.remove('keyboard-up');
+  }
+}
+
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', updateKeyboardHeight, { passive: true });
+  window.visualViewport.addEventListener('scroll', updateKeyboardHeight, { passive: true });
+}
+
+// Fallback: focus/blur detection
+document.addEventListener('focusin', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+    // Give keyboard time to open
+    setTimeout(updateKeyboardHeight, 400);
+    setTimeout(() => {
+      e.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 500);
+  }
+}, { passive: true });
+
+document.addEventListener('focusout', () => {
+  setTimeout(updateKeyboardHeight, 300);
+}, { passive: true });
+
+/* ============================================
+   BODY SCROLL LOCK — no layout jump
+   ============================================ */
+let scrollY = 0;
+
+function lockBody() {
+  scrollY = window.scrollY;
+  document.body.style.top = `-${scrollY}px`;
+  document.body.classList.add('modal-open');
+}
+
+function unlockBody() {
+  document.body.classList.remove('modal-open');
+  document.body.style.top = '';
+  window.scrollTo(0, scrollY);
+}
+
+/* ============================================
+   CART STATE
+   ============================================ */
 let cart = {};
 
-function getSlug(cat){ return cat.replace(/[^a-z0-9]/gi,'_').toLowerCase(); }
+function getSlug(cat) {
+  return cat.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+}
 
-function buildMenu(){
+/* ============================================
+   MENU BUILD — DocumentFragment for perf
+   ============================================ */
+function buildMenu() {
   const root = document.getElementById('menu-root');
   const tabs = document.getElementById('tabs');
+  const frag = document.createDocumentFragment();
+  const tabFrag = document.createDocumentFragment();
 
-  MENU_DATA.forEach((section,si)=>{
+  MENU_DATA.forEach((section, si) => {
     const slug = getSlug(section.catEn);
 
+    // Tab button
     const tb = document.createElement('button');
-    tb.className = 'tab-btn' + (si===0?' active':'');
+    tb.className = 'tab-btn' + (si === 0 ? ' active' : '');
     tb.dataset.en = section.catEn;
     tb.dataset.hi = section.catHi;
-    tb.textContent = section.catEn;
-    tb.onclick = ()=>{
-      const target = document.getElementById('sec-'+slug);
-      const headerOffset = 130; 
-      const elementPosition = target.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-      setTimeout(()=>setActiveTab(slug),400);
-    };
     tb.dataset.slug = slug;
-    tabs.appendChild(tb);
+    tb.textContent = section.catEn;
+    tb.onclick = () => scrollToSection(slug);
+    tabFrag.appendChild(tb);
 
-    const sec = document.createElement('div');
+    // Section
+    const sec = document.createElement('section');
     sec.className = 'menu-section';
-    sec.id = 'sec-'+slug;
-    sec.innerHTML = `<div class="section-title" data-en="${section.catEn}" data-hi="${section.catHi}">${section.catEn}</div><div class="section-line"></div>`;
+    sec.id = 'sec-' + slug;
 
-    section.items.forEach(item=>{
-      const id = section.catEn+'__'+item.nEn.replace(/\s+/g,'_');
-      const row = document.createElement('div');
+    const title = document.createElement('h2');
+    title.className = 'section-title';
+    title.setAttribute('data-en', section.catEn);
+    title.setAttribute('data-hi', section.catHi);
+    title.textContent = section.catEn;
+    sec.appendChild(title);
+
+    const line = document.createElement('div');
+    line.className = 'section-line';
+    sec.appendChild(line);
+
+    section.items.forEach(item => {
+      const id = section.catEn + '__' + item.nEn.replace(/\s+/g, '_');
+      const descEn = DESCS[section.catEn]?.en || '';
+      const descHi = DESCS[section.catEn]?.hi || '';
+
+      const row = document.createElement('article');
       row.className = 'menu-item';
       row.dataset.id = id;
       row.dataset.search = (item.nEn + ' ' + item.nHi).toLowerCase();
-      
-      let descEn = DESCS[section.catEn]?.en || '';
-      let descHi = DESCS[section.catEn]?.hi || '';
 
-      row.innerHTML = `
-        <div class="item-veg"></div>
-        <div class="item-info">
-          <div class="item-name" data-en="${item.nEn}" data-hi="${item.nHi}">${item.nEn}</div>
-          <div class="item-desc" data-en="${descEn}" data-hi="${descHi}">${descEn}</div>
-        </div>
-        <div class="item-price">₹${item.p}</div>
-        <div class="item-ctrl" id="ctrl-${CSS.escape(id)}">
-          <button class="add-btn" onclick="addItem('${id}',${item.p},'${item.nEn.replace(/'/g,"\\'")}','${item.nHi.replace(/'/g,"\\'")}')">+</button>
-        </div>`;
+      // Build item DOM efficiently
+      const vegDiv = document.createElement('div');
+      vegDiv.className = 'item-veg';
+      vegDiv.setAttribute('title', 'Vegetarian');
+
+      const info = document.createElement('div');
+      info.className = 'item-info';
+
+      const nameEl = document.createElement('div');
+      nameEl.className = 'item-name';
+      nameEl.setAttribute('data-en', item.nEn);
+      nameEl.setAttribute('data-hi', item.nHi);
+      nameEl.textContent = item.nEn;
+
+      const descEl = document.createElement('div');
+      descEl.className = 'item-desc';
+      descEl.setAttribute('data-en', descEn);
+      descEl.setAttribute('data-hi', descHi);
+      descEl.textContent = descEn;
+
+      info.appendChild(nameEl);
+      info.appendChild(descEl);
+
+      const price = document.createElement('div');
+      price.className = 'item-price';
+      price.textContent = '₹' + item.p;
+
+      const ctrl = document.createElement('div');
+      ctrl.className = 'item-ctrl';
+      ctrl.id = 'ctrl-' + CSS.escape(id);
+
+      const addBtn = document.createElement('button');
+      addBtn.className = 'add-btn';
+      addBtn.textContent = '+';
+      addBtn.setAttribute('aria-label', 'Add ' + item.nEn);
+      addBtn.onclick = () => addItem(id, item.p, item.nEn, item.nHi);
+      ctrl.appendChild(addBtn);
+
+      row.appendChild(vegDiv);
+      row.appendChild(info);
+      row.appendChild(price);
+      row.appendChild(ctrl);
       sec.appendChild(row);
     });
-    root.appendChild(sec);
+
+    frag.appendChild(sec);
+  });
+
+  tabs.appendChild(tabFrag);
+  root.appendChild(frag);
+}
+
+function scrollToSection(slug) {
+  const target = document.getElementById('sec-' + slug);
+  if (!target) return;
+  const headerHeight = document.getElementById('main-header').offsetHeight;
+  const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+  window.scrollTo({ top, behavior: 'smooth' });
+  setTimeout(() => setActiveTab(slug), 380);
+}
+
+function setActiveTab(slug) {
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    const isActive = b.dataset.slug === slug;
+    b.classList.toggle('active', isActive);
+    if (isActive) b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   });
 }
 
-function setActiveTab(slug){
-  document.querySelectorAll('.tab-btn').forEach(b=>{
-    b.classList.toggle('active', b.dataset.slug===slug);
-    if(b.dataset.slug===slug) b.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
-  });
-}
-
-function addItem(id, price, nameEn, nameHi){
-  if(!cart[id]) cart[id]={nameEn, nameHi, price, qty:0};
+/* ============================================
+   CART LOGIC
+   ============================================ */
+function addItem(id, price, nameEn, nameHi) {
+  if (!cart[id]) cart[id] = { nameEn, nameHi, price, qty: 0 };
   cart[id].qty++;
   renderCtrl(id);
   updateCartBar();
 }
 
-function removeItem(id){
-  if(!cart[id]) return;
+function removeItem(id) {
+  if (!cart[id]) return;
   cart[id].qty--;
-  if(cart[id].qty<=0) delete cart[id];
+  if (cart[id].qty <= 0) delete cart[id];
   renderCtrl(id);
   updateCartBar();
 }
 
-function renderCtrl(id){
-  const el = document.getElementById('ctrl-'+CSS.escape(id));
-  if(!el) return;
+function renderCtrl(id) {
+  const el = document.getElementById('ctrl-' + CSS.escape(id));
+  if (!el) return;
   const item = cart[id];
-  if(!item || item.qty===0){
-    const parent = el.closest('.menu-item');
-    const price = parent?.querySelector('.item-price')?.textContent.replace('₹','');
-    const nameEn = parent?.querySelector('.item-name')?.getAttribute('data-en').replace(/'/g,"\\'");
-    const nameHi = parent?.querySelector('.item-name')?.getAttribute('data-hi').replace(/'/g,"\\'");
-    el.innerHTML = `<button class="add-btn" onclick="addItem('${id}',${price||0},'${nameEn||''}','${nameHi||''}')">+</button>`;
+  if (!item || item.qty === 0) {
+    const row = el.closest('.menu-item');
+    const price = row?.querySelector('.item-price')?.textContent.replace('₹', '') || '0';
+    const nEn = row?.querySelector('.item-name')?.getAttribute('data-en') || '';
+    const nHi = row?.querySelector('.item-name')?.getAttribute('data-hi') || '';
+    const btn = document.createElement('button');
+    btn.className = 'add-btn';
+    btn.textContent = '+';
+    btn.setAttribute('aria-label', 'Add ' + nEn);
+    btn.onclick = () => addItem(id, +price, nEn, nHi);
+    el.innerHTML = '';
+    el.appendChild(btn);
   } else {
-    el.innerHTML = `<div class="qty-ctrl">
-      <button class="qty-btn" onclick="removeItem('${id}')">−</button>
-      <span class="qty-num">${item.qty}</span>
-      <button class="qty-btn" onclick="addItem('${id}',${item.price},'${item.nameEn.replace(/'/g,"\\'")}','${item.nameHi.replace(/'/g,"\\'")}')">+</button>
+    el.innerHTML = `<div class="qty-ctrl" role="group" aria-label="Quantity">
+      <button class="qty-btn" onclick="removeItem('${id}')" aria-label="Remove one">−</button>
+      <span class="qty-num" aria-live="polite">${item.qty}</span>
+      <button class="qty-btn" onclick="addItem('${id}',${item.price},'${item.nameEn.replace(/'/g,"\\'")}','${item.nameHi.replace(/'/g,"\\'")}' )" aria-label="Add one">+</button>
     </div>`;
   }
 }
 
-function updateCartBar(){
+function updateCartBar() {
   const items = Object.values(cart);
-  const total = items.reduce((s,i)=>s+i.price*i.qty,0);
-  const count = items.reduce((s,i)=>s+i.qty,0);
+  const total = items.reduce((s, i) => s + i.price * i.qty, 0);
+  const count = items.reduce((s, i) => s + i.qty, 0);
   const bar = document.getElementById('cart-bar');
-  
-  let countText = count + (currentLang==='en' ? (count!==1?' items':' item') : ' आइटम');
-  document.getElementById('cb-count').textContent = countText;
-  document.getElementById('cb-total').textContent = '₹'+total;
-  bar.classList.toggle('show', count>0);
+  const suffix = currentLang === 'en' ? (count !== 1 ? ' items' : ' item') : ' आइटम';
+  document.getElementById('cb-count').textContent = count + suffix;
+  document.getElementById('cb-total').textContent = '₹' + total;
+  bar.classList.toggle('show', count > 0);
 }
 
-function openCart(){
-  const overlay = document.getElementById('cart-overlay');
-  overlay.classList.add('show');
+/* ============================================
+   CART OVERLAY
+   ============================================ */
+function openCart() {
+  lockBody();
+  document.getElementById('cart-overlay').classList.add('show');
   renderCartList();
 }
 
-function closeCart(){
+function closeCart() {
   document.getElementById('cart-overlay').classList.remove('show');
+  unlockBody();
 }
 
-function renderCartList(){
+function renderCartList() {
   const el = document.getElementById('cart-items-list');
   const items = Object.entries(cart);
-  
-  if(!items.length){
-    let emptyMsg = currentLang==='en' ? 'Your cart is empty' : 'आपका कार्ट खाली है';
-    el.innerHTML=`<div class="cart-empty">${emptyMsg}</div>`;
-    document.getElementById('cart-grand-total').textContent='₹0';
+  if (!items.length) {
+    el.innerHTML = `<div class="cart-empty">${currentLang === 'en' ? 'Your cart is empty' : 'आपका कार्ट खाली है'}</div>`;
+    document.getElementById('cart-grand-total').textContent = '₹0';
     return;
   }
-  
-  let html='',total=0;
-  items.forEach(([id,item])=>{
-    total+=item.price*item.qty;
-    let dispName = currentLang==='en' ? item.nameEn : item.nameHi;
-    html+=`<div class="cart-item">
-      <span class="cart-item-name">${dispName}</span>
-      <div class="qty-ctrl">
-        <button class="qty-btn" onclick="cartRemove('${id}')">−</button>
+  let html = '', total = 0;
+  items.forEach(([id, item]) => {
+    total += item.price * item.qty;
+    const name = currentLang === 'en' ? item.nameEn : item.nameHi;
+    const eId = id.replace(/'/g, "\\'");
+    html += `<div class="cart-item" role="listitem">
+      <span class="cart-item-name">${name}</span>
+      <div class="qty-ctrl" role="group" aria-label="Quantity">
+        <button class="qty-btn" onclick="cartRemove('${eId}')" aria-label="Remove">−</button>
         <span class="qty-num">${item.qty}</span>
-        <button class="qty-btn" onclick="cartAdd('${id}')">+</button>
+        <button class="qty-btn" onclick="cartAdd('${eId}')" aria-label="Add">+</button>
       </div>
-      <span class="cart-item-price">₹${item.price*item.qty}</span>
+      <span class="cart-item-price">₹${item.price * item.qty}</span>
     </div>`;
   });
-  el.innerHTML=html;
-  document.getElementById('cart-grand-total').textContent='₹'+total;
+  el.innerHTML = html;
+  document.getElementById('cart-grand-total').textContent = '₹' + total;
 }
 
-function buildOrderMsg(name, location, notes){
-  let msg = `Hello! I want to place an order:\n\n`;
-  Object.values(cart).forEach(i=>{ msg+=`• ${i.nameEn} × ${i.qty} = ₹${i.price*i.qty}\n`; });
-  const total = Object.values(cart).reduce((s,i)=>s+i.price*i.qty,0);
-  msg+=`\n*Total: ₹${total}*\nName: ${name}\nLocation: ${location}`;
-  if(notes) msg+=`\n\n*Special Request:* ${notes}`;
-  return msg;
-}
+function cartAdd(id) { addItem(id, cart[id]?.price, cart[id]?.nameEn, cart[id]?.nameHi); renderCartList(); }
+function cartRemove(id) { removeItem(id); renderCartList(); }
 
-function cartAdd(id){addItem(id,cart[id]?.price,cart[id]?.nameEn,cart[id]?.nameHi);renderCartList();}
-function cartRemove(id){removeItem(id);renderCartList();}
-
+/* ============================================
+   CUSTOMER MODAL
+   ============================================ */
 let pendingAction = null;
-function openCustomer(action){
+
+function openCustomer(action) {
   pendingAction = action;
-  
-  // RESET THE MODAL
   document.getElementById('cust-error').style.display = 'none';
   document.getElementById('cust-name').value = '';
   document.getElementById('cust-number').value = '';
   document.querySelectorAll('input[name="order-type"]').forEach(r => r.checked = false);
   document.getElementById('cust-number').placeholder = PLACEHOLDERS_LANG['cust-number'][currentLang];
-
   document.getElementById('cust-modal').classList.add('show');
-  document.getElementById('cust-name').focus();
+  // Focus name input after animation
+  setTimeout(() => document.getElementById('cust-name').focus(), 320);
 }
 
-function closeCustomer(){ document.getElementById('cust-modal').classList.remove('show'); }
+function closeCustomer() {
+  document.getElementById('cust-modal').classList.remove('show');
+  unlockBody();
+}
 
-// DYNAMIC PLACEHOLDER LOGIC FOR TABLE/ROOM
-const typeRadios = document.querySelectorAll('input[name="order-type"]');
-const numInput = document.getElementById('cust-number');
-typeRadios.forEach(radio => {
-  radio.addEventListener('change', (e) => {
-     const type = e.target.value;
-     const isHi = currentLang === 'hi';
-     if(type === 'Table') {
-        numInput.placeholder = isHi ? "टेबल नंबर दर्ज करें" : "Enter Table Number";
-     } else {
-        numInput.placeholder = isHi ? "रूम नंबर दर्ज करें" : "Enter Room Number";
-     }
+// Dynamic placeholder for Table/Room
+document.querySelectorAll('input[name="order-type"]').forEach(radio => {
+  radio.addEventListener('change', e => {
+    const isHi = currentLang === 'hi';
+    document.getElementById('cust-number').placeholder =
+      e.target.value === 'Table'
+        ? (isHi ? 'टेबल नंबर दर्ज करें' : 'Enter Table Number')
+        : (isHi ? 'रूम नंबर दर्ज करें' : 'Enter Room Number');
   });
 });
 
-// SUBMIT ORDER WITH VALIDATION
-document.getElementById('cust-confirm').onclick = ()=>{
+function buildOrderMsg(name, location, notes) {
+  let msg = `Hello! I want to place an order:\n\n`;
+  Object.values(cart).forEach(i => { msg += `• ${i.nameEn} × ${i.qty} = ₹${i.price * i.qty}\n`; });
+  const total = Object.values(cart).reduce((s, i) => s + i.price * i.qty, 0);
+  msg += `\n*Total: ₹${total}*\nName: ${name}\nLocation: ${location}`;
+  if (notes) msg += `\n\n*Special Request:* ${notes}`;
+  return msg;
+}
+
+document.getElementById('cust-confirm').onclick = () => {
   const name = document.getElementById('cust-name').value.trim() || 'Guest';
   const typeSelected = document.querySelector('input[name="order-type"]:checked');
   const number = document.getElementById('cust-number').value.trim();
   const errorEl = document.getElementById('cust-error');
 
-  // Validation 1: Must select Table or Room
-  if(!typeSelected) {
-    errorEl.textContent = currentLang === 'en' ? "Please select Table or Room." : "कृपया टेबल या रूम चुनें।";
+  if (!typeSelected) {
+    errorEl.textContent = currentLang === 'en' ? 'Please select Table or Room.' : 'कृपया टेबल या रूम चुनें।';
     errorEl.style.display = 'block';
     return;
   }
-  
-  // Validation 2: Must enter a number
-  if(!number) {
-    if(currentLang === 'en') {
-       errorEl.textContent = `Please enter your ${typeSelected.value} number.`;
-    } else {
-       errorEl.textContent = `कृपया अपना ${typeSelected.value === 'Table' ? 'टेबल' : 'रूम'} नंबर दर्ज करें।`;
-    }
+  if (!number) {
+    errorEl.textContent = currentLang === 'en'
+      ? `Please enter your ${typeSelected.value} number.`
+      : `कृपया अपना ${typeSelected.value === 'Table' ? 'टेबल' : 'रूम'} नंबर दर्ज करें।`;
     errorEl.style.display = 'block';
     return;
   }
 
   errorEl.style.display = 'none';
-  const locationString = `${typeSelected.value} ${number}`;
+  const locationStr = `${typeSelected.value} ${number}`;
   const notes = document.getElementById('cart-notes').value.trim();
-  
-  const msg = buildOrderMsg(name, locationString, notes);
-  
+  const msg = buildOrderMsg(name, locationStr, notes);
+
   closeCustomer();
   closeCart();
-  if(pendingAction==='wa'){
-    window.open('https://wa.me/918818004499?text='+encodeURIComponent(msg),'_blank');
+
+  if (pendingAction === 'wa') {
+    window.open('https://wa.me/918818004499?text=' + encodeURIComponent(msg), '_blank');
   } else {
-    window.location.href='mailto:ashokahoteljind@gmail.com?subject=New%20Food%20Order&body='+encodeURIComponent(msg);
+    window.location.href = 'mailto:ashokahoteljind@gmail.com?subject=New%20Food%20Order&body=' + encodeURIComponent(msg);
   }
 };
 
-document.getElementById('wa-btn').onclick = ()=>{ if(!Object.keys(cart).length) return; openCustomer('wa'); };
-document.getElementById('email-btn').onclick = ()=>{ if(!Object.keys(cart).length) return; openCustomer('email'); };
-document.getElementById('cart-bar').onclick = openCart;
-document.getElementById('cart-close').onclick = closeCart;
-document.getElementById('cart-backdrop').onclick = closeCart;
-document.getElementById('cust-backdrop').onclick = closeCustomer;
-
-document.getElementById('menu-search').addEventListener('input', function(e) {
-  const term = e.target.value.toLowerCase();
-  const sections = document.querySelectorAll('.menu-section');
-  sections.forEach(sec => {
-    let hasVisibleItem = false;
-    const items = sec.querySelectorAll('.menu-item');
-    items.forEach(item => {
-      if (item.dataset.search.includes(term)) {
-        item.style.display = 'flex';
-        hasVisibleItem = true;
-      } else {
-        item.style.display = 'none';
-      }
+/* ============================================
+   SEARCH
+   ============================================ */
+let searchTimeout;
+document.getElementById('menu-search').addEventListener('input', function (e) {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    const term = e.target.value.toLowerCase().trim();
+    document.querySelectorAll('.menu-section').forEach(sec => {
+      let visible = 0;
+      sec.querySelectorAll('.menu-item').forEach(item => {
+        const show = !term || item.dataset.search.includes(term);
+        item.style.display = show ? 'flex' : 'none';
+        if (show) visible++;
+      });
+      sec.style.display = visible ? 'block' : 'none';
     });
-    sec.style.display = hasVisibleItem ? 'block' : 'none';
-  });
-});
+  }, 120);
+}, { passive: true });
 
+/* ============================================
+   LANGUAGE
+   ============================================ */
 function applyLanguage() {
   document.querySelectorAll('[data-en][data-hi]').forEach(el => {
-    el.textContent = el.getAttribute(`data-${currentLang}`);
+    el.textContent = el.getAttribute('data-' + currentLang);
   });
-  for (let id in UI_LANG) {
-    let el = document.getElementById(id);
-    if(el) el.textContent = UI_LANG[id][currentLang];
+  for (const id in UI_LANG) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = UI_LANG[id][currentLang];
   }
-  
-  // Update normal placeholders
-  for (let id in PLACEHOLDERS_LANG) {
-    let el = document.getElementById(id);
-    if(el && id !== 'cust-number') el.placeholder = PLACEHOLDERS_LANG[id][currentLang];
+  for (const id in PLACEHOLDERS_LANG) {
+    if (id === 'cust-number') continue;
+    const el = document.getElementById(id);
+    if (el) el.placeholder = PLACEHOLDERS_LANG[id][currentLang];
   }
-  
-  // Special handling for dynamic number placeholder
-  const selectedType = document.querySelector('input[name="order-type"]:checked');
-  if (selectedType) {
-      document.getElementById('cust-number').placeholder = currentLang === 'en' ? `Enter ${selectedType.value} Number` : `${selectedType.value === 'Table' ? 'टेबल' : 'रूम'} नंबर दर्ज करें`;
-  } else {
-      document.getElementById('cust-number').placeholder = PLACEHOLDERS_LANG['cust-number'][currentLang];
-  }
+  const sel = document.querySelector('input[name="order-type"]:checked');
+  document.getElementById('cust-number').placeholder = sel
+    ? (currentLang === 'en' ? `Enter ${sel.value} Number` : `${sel.value === 'Table' ? 'टेबल' : 'रूम'} नंबर दर्ज करें`)
+    : PLACEHOLDERS_LANG['cust-number'][currentLang];
 
   updateCartBar();
   if (document.getElementById('cart-overlay').classList.contains('show')) renderCartList();
 }
 
-document.getElementById('lang-btn').onclick = function() {
+document.getElementById('lang-btn').onclick = () => {
   currentLang = currentLang === 'en' ? 'hi' : 'en';
   applyLanguage();
 };
 
-const sunIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
-const moonIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+/* ============================================
+   THEME
+   ============================================ */
+const sunIcon = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+const moonIcon = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
 
 const themeBtn = document.getElementById('theme-btn');
-let dark = localStorage.getItem('ashoka-theme')!=='light';
-function applyTheme(){ 
-  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light'); 
-  themeBtn.innerHTML = dark ? sunIcon : moonIcon; 
-  localStorage.setItem('ashoka-theme', dark ? 'dark' : 'light'); 
-}
-themeBtn.onclick = ()=>{ dark=!dark; applyTheme(); };
-if(localStorage.getItem('ashoka-theme')==='light'){dark=false;} applyTheme();
+let dark = localStorage.getItem('ashoka-theme') !== 'light';
 
+function applyTheme() {
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  themeBtn.innerHTML = dark ? sunIcon : moonIcon;
+  themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  localStorage.setItem('ashoka-theme', dark ? 'dark' : 'light');
+}
+themeBtn.onclick = () => { dark = !dark; applyTheme(); };
+applyTheme();
+
+/* ============================================
+   EVENT BINDINGS
+   ============================================ */
+document.getElementById('cart-bar').onclick = openCart;
+document.getElementById('cart-bar').onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') openCart(); };
+document.getElementById('cart-close').onclick = closeCart;
+document.getElementById('cart-backdrop').onclick = closeCart;
+document.getElementById('cust-backdrop').onclick = closeCustomer;
+
+document.getElementById('wa-btn').onclick = () => {
+  if (!Object.keys(cart).length) return;
+  closeCart();
+  lockBody();
+  openCustomer('wa');
+};
+document.getElementById('email-btn').onclick = () => {
+  if (!Object.keys(cart).length) return;
+  closeCart();
+  lockBody();
+  openCustomer('email');
+};
+
+/* ============================================
+   SCROLL BEHAVIOR — throttled for perf
+   ============================================ */
 const header = document.getElementById('main-header');
 const scrollTopBtn = document.getElementById('scroll-top');
+let ticking = false;
+let lastKnownScrollY = 0;
 
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 10) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-  scrollTopBtn.classList.toggle('show', window.scrollY > 300);
-  
-  let active = null;
-  MENU_DATA.forEach(s => {
-    const slug = getSlug(s.catEn);
-    const el = document.getElementById('sec-'+slug);
-    if(el && el.getBoundingClientRect().top < 150) active = slug;
-  });
-  if(active) setActiveTab(active);
-}, {passive: true});
+  lastKnownScrollY = window.scrollY;
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      header.classList.toggle('scrolled', lastKnownScrollY > 10);
+      scrollTopBtn.classList.toggle('show', lastKnownScrollY > 300);
 
+      // Update active tab based on visible section
+      let active = null;
+      const threshold = document.getElementById('main-header').offsetHeight + 16;
+      MENU_DATA.forEach(s => {
+        const el = document.getElementById('sec-' + getSlug(s.catEn));
+        if (el && el.getBoundingClientRect().top < threshold) active = getSlug(s.catEn);
+      });
+      if (active) setActiveTab(active);
+
+      ticking = false;
+    });
+    ticking = true;
+  }
+}, { passive: true });
+
+/* ============================================
+   INIT
+   ============================================ */
 buildMenu();
 applyLanguage();
 </script>
